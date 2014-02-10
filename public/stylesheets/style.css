@@ -6,3 +6,10 @@ body {
 a {
   color: #00B7FF;
 }
+
+/* competitions */
+input.comp-name {
+  height: 48px;
+  font-size: 48px;
+  line-height: 58px;
+}
