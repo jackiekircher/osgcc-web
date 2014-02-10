@@ -1,6 +1,7 @@
 - @competitions.each do |competition|
-  .hero-unit
-    %h1 #{competition.name}
+  %article.competition
+    %header
+      %h1 #{competition.name}
     %p
       Start Date: #{competition.formatted_start}
     %p
