@@ -1,10 +1,92 @@
 body {
-  padding: 50px;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+header {
+  background: #35C211;
+}
+
+header .header-wrap{
+  width: 80%;
+  margin: 0 auto;
+  padding: 0.1em;
+  color: white;
+}
+
+header .header-wrap h1 {
+  font-size: 3em;
+}
+
+header .header-wrap a {
+  text-decoration: none;
+  color: white;
+}
+
+header .header-wrap ul.account {
+  list-style: none;
+  float: right;
+  display: block;
+}
+header .header-wrap ul.account li {
+  display: inline-block;
+  margin-right: 1.5em;
+}
+
+header .header-wrap nav ul{
+  list-style: none;
+  font-size: 1.5em;
+}
+
+header .header-wrap nav ul li{
+  display: inline-block;
+  padding: 4px 0.6em 6px 0.6em;
+  margin-right: 2.5em;
+  line-height: 1.5em;
+}
+
+header .header-wrap nav ul li:hover {
+  background: white;
+}
+header .header-wrap nav ul li:hover a {
+  color: #35C211;
+}
+
+li.dropdown ul.dropdown-menu {
+  display: none;
+  color: #35C211;
+  font-size: 1em;
+  position: absolute;
+  margin-left: -0.8em;
+  background: white;
+  border: 0.2em solid #35C211;
+  border-top: none;
+}
+
+li.dropdown ul.dropdown-menu a {
+  color: #35C211;
+}
+
+li.dropdown:hover ul.dropdown-menu {
+  display: block;
+}
+
+li.dropdown:hover ul.dropdown-menu li{
+  margin: 0.3em 1.45em 0.3em -10px;
+  padding: 0;
+  font-size: 0.9em;
+}
+
+li.dropdown:hover ul.dropdown-menu li{
+  display: block;
+}
+
+.content header {
+  background: none;
 }
 
 /* competitions */

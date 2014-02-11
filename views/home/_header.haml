@@ -1,14 +1,28 @@
 %header
-  .container
-    %h3
+  .header-wrap
+    %ul.account
+      - if logged_in?
+        %li
+          %a{:href => "https://github.com/#{current_user.username}"}
+            #{current_user.username}
+        %li
+          %a{:href => url('/logout')}
+            Log out
+      - else
+        %li
+          %a{:href => url('/login')}
+            Log In
+
+    %h1
       %a{:href => '/'}
         OSGCC
+
     %nav
       %ul
-        %li.active
-          %a{:href => '/'}
-            Home
-        %li.dropdown{'data-dropdown' => 'dropdown'}
+        %li
+          %a{:href => url('/about')}
+            About
+        %li.dropdown
           %a.dropdown-toggle{:href => '#'} Competitions
           %ul.dropdown-menu
             %li
@@ -32,26 +46,6 @@
                     %a{:href => '/competition/#{comp._id}'}
                       #{comp.name}
         %li
-          %a{:href => url('/about')}
-            About
-        %li
           %a{:href => url('/contact')}
             Contact
-      %ul.nav.secondary-nav
-        - if logged_in?
-          %li.dropdown{'data-dropdown' => 'dropdown'}
-            %a.dropdown-toggle{:href => '#'}
-              #{current_user.username}
-            %ul.dropdown-menu
-              %li
-                %a{:href => '/profile'}
-                  Profile
-              %li.divider
-              %li
-                %a{:href => url('/logout')}
-                  Log out
-        - else
-          %li
-            %a{:href => url('/login')}
-              Log In
 
