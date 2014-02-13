@@ -16,6 +16,16 @@ class OSGCCWeb
     redirect "/competitions/#{c._id.to_s}"
   end
 
+  get '/competitions/past' do
+    @competitions = Competition.passed.all
+    haml :'competitions/index', :layout => :default_layout
+  end
+
+  get '/competitions/upcoming' do
+    @competitions = Competition.upcoming_or_in_progress
+    haml :'competitions/index', :layout => :default_layout
+  end
+
   get '/competitions/new', :authorize => :admin do
     @zones = TimezonePrinter.filtered_list
     haml :'competitions/new', :layout => :default_layout

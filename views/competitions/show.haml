@@ -1,10 +1,11 @@
-.hero-unit
+%section.competition
   %h1 #{@competition.name}
+
   %p
     #{@competition.formatted_start}
     to
     #{@competition.formatted_end}
   - if authorized?
     %p
-      %a.btn.primary.large{:href => url("/competitions/#{@competition._id}/edit")}
+      %a{:href => url("/competitions/#{@competition._id}/edit")}
         Edit
