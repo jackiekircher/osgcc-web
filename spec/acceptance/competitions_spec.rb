@@ -79,11 +79,11 @@ describe 'OSCGG-Web competitions', :type => :request do
         fill_in 'start_time', :with => "6:00pm"
         fill_in 'end_date',   :with => "2012-06-07"
         fill_in 'end_time',   :with => "6:00pm"
-        select 'Europe - London', :from => "timezone"
+        select 'Greenwich', :from => "timezone"
         click_on 'Create Competition'
 
-        page.should have_content "June 6, 2012 6:00 pm BST"
-        page.should have_content "June 7, 2012 6:00 pm BST"
+        page.should have_content "June 6, 2012 6:00 pm GMT"
+        page.should have_content "June 7, 2012 6:00 pm GMT"
       end
     end
   end
