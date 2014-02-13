@@ -89,9 +89,13 @@ li.dropdown:hover ul.dropdown-menu li{
   background: none;
 }
 
-/* competitions */
-input.comp-name {
-  height: 48px;
-  font-size: 48px;
-  line-height: 58px;
+/* body */
+
+.container-fluid {
+  width: 80%;
+  margin: 4em auto;
+}
+
+.clearfix {
+  display: block;
 }

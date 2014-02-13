@@ -1,0 +1,26 @@
+form#competition, form#competition input, form#competition select {
+  color: #2C9113;
+}
+
+form#competition input#comp-name {
+  margin: 1em 0;
+  height: 48px;
+  font-size: 48px;
+}
+
+form#competition input.time {
+  display: inline-block;
+  margin-bottom: 3em;
+  width: 10em;
+  font-size: 14px;
+}
+
+form#competition select#timezone {
+  font-size: 14px;
+  margin-left: 1em;
+}
+
+form#competition input#submit {
+  font-size: 24px;
+  color: #2C9113;
+}
