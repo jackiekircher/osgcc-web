@@ -75,6 +75,7 @@ describe 'OSCGG-Web competitions', :type => :request do
 
       it "saves the timezone correctly for a competition" do
         visit '/competitions/new'
+        fill_in 'comp_name',  :with => "test competition"
         fill_in 'start_date', :with => "2012-06-06"
         fill_in 'start_time', :with => "6:00pm"
         fill_in 'end_date',   :with => "2012-06-07"

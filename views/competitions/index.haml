@@ -1,5 +1,5 @@
 - @competitions.each do |competition|
-  %article.competition
+  %section.competition
     %header
       %h1 #{competition.name}
     %p
@@ -7,5 +7,5 @@
     %p
       End Date: #{competition.formatted_end}
     %p
-      %a.btn.primary.large{:href => url("/competitions/#{competition._id}")}
+      %a{:href => url("/competitions/#{competition._id}")}
         Details

@@ -3,17 +3,20 @@ require_relative '../spec_helper'
 describe Competition do
 
   let(:future_comp) do
-    Competition.create(:start_date => DateTime.tomorrow,
+    Competition.create(:name       => "future",
+                       :start_date => DateTime.tomorrow,
                        :end_date   => DateTime.tomorrow + 1)
   end
 
   let(:current_comp) do
-    Competition.create(:start_date => DateTime.yesterday,
+    Competition.create(:name       => "in progress",
+                       :start_date => DateTime.yesterday,
                        :end_date   => DateTime.tomorrow)
   end
 
   let(:past_comp) do
-    Competition.create(:start_date => DateTime.yesterday - 1,
+    Competition.create(:name       => "past",
+                       :start_date => DateTime.yesterday - 1,
                        :end_date   => DateTime.yesterday)
   end
 

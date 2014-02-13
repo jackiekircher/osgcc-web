@@ -1,7 +1,7 @@
 class Competition
   include MongoMapper::Document
 
-  key :name,          String
+  key :name,          String, :required => true
   key :start_date,    Time
   key :end_date,      Time
   key :tz_identifier, String
