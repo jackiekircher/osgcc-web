@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'mongo_mapper'
+require 'debugger'
 
 class OSGCCWeb < Sinatra::Base
   set :app_file, '.'

@@ -7,6 +7,7 @@ gem 'bson_ext'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'tzinfo'
+gem 'debugger'
 
 group :test do
   gem 'capybara'
