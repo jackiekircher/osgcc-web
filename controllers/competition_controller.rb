@@ -11,9 +11,17 @@ class OSGCCWeb
     timezone   = TimezonePrinter.new(TZInfo::Timezone.get(params[:timezone]))
     start_date = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}#{timezone.abbr}","%Y-%m-%dT%I:%M%P%Z")
     end_date   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}#{timezone.abbr}","%Y-%m-%dT%I:%M%P%Z")
-    c = Competition.create(:name => name, :start_date => start_date, :end_date => end_date, :tz_identifier => timezone.identifier)
 
-    redirect "/competitions/#{c._id.to_s}"
+    begin
+      c = Competition.create!(:name => name, :start_date => start_date, :end_date => end_date, :tz_identifier => timezone.identifier)
+
+      redirect "/competitions/#{c._id.to_s}"
+
+    rescue MongoMapper::DocumentNotValid => error
+      @zones = TimezonePrinter.filtered_list
+      haml :'competitions/new', :layout => :default_layout,
+           :locals => {:params => params}
+    end
   end
 
   get '/competitions/past' do
