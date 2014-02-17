@@ -4,21 +4,30 @@
     %input#comp-name{:name => 'comp_name',
                      :size => 30,
                      :type => 'text',
-                     :placeholder => 'New Competition Name'}
+                     :placeholder => 'New Competition Name',
+                     :required    => 'required'}
   %div.clearfix
-    %input.time{:type  => 'text',
-                :name  => 'start_date',
-                :value => Date.today.strftime('%Y-%m-%d')}
-    %input.time{:type  => 'text',
-                :name  => 'start_time',
-                :value => '6:00pm'}
+    %input.time{:type    => 'date',
+                :name    => 'start_date',
+                :value   => Date.today.strftime('%Y-%m-%d'),
+                :requred => 'required'}
+
+    %input.time{:type     => 'time',
+                :name     => 'start_time',
+                :value    => '18:00',
+                :required => 'required'}
+
     to
-    %input.time{:type  => 'text',
-                :name  => 'end_date',
-                :value => (Date.today + 1).strftime('%Y-%m-%d')}
-    %input.time{:type  => 'text',
-                :name  => 'end_time',
-                :value => '6:00pm'}
+
+    %input.time{:type     => 'date',
+                :name     => 'end_date',
+                :value    => (Date.today + 1).strftime('%Y-%m-%d'),
+                :required => 'required'}
+
+    %input.time{:type     => 'time',
+                :name     => 'end_time',
+                :value    => '18:00',
+                :required => 'required'}
 
     %select#timezone{:name => "timezone"}
       - @zones.each do |timezone|

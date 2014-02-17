@@ -62,9 +62,9 @@ describe 'OSCGG-Web competitions', :type => :request do
         visit '/competitions/new'
         fill_in 'comp_name',  :with => "test competition"
         fill_in 'start_date', :with => "2012-06-06"
-        fill_in 'start_time', :with => "6:00pm"
+        fill_in 'start_time', :with => "18:00"
         fill_in 'end_date',   :with => "2012-06-07"
-        fill_in 'end_time',   :with => "6:00pm"
+        fill_in 'end_time',   :with => "18:00"
         select 'Greenwich', :from => "timezone"
         click_on 'Create Competition'
 
@@ -77,9 +77,9 @@ describe 'OSCGG-Web competitions', :type => :request do
         visit '/competitions/new'
         fill_in 'comp_name',  :with => "test competition"
         fill_in 'start_date', :with => "2012-06-06"
-        fill_in 'start_time', :with => "6:00pm"
+        fill_in 'start_time', :with => "18:00"
         fill_in 'end_date',   :with => "2012-06-07"
-        fill_in 'end_time',   :with => "6:00pm"
+        fill_in 'end_time',   :with => "18:00"
         select 'Greenwich', :from => "timezone"
         click_on 'Create Competition'
 
