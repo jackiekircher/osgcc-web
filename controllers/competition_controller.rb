@@ -13,13 +13,19 @@ class OSGCCWeb
     end_date   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}#{timezone.abbr}","%Y-%m-%dT%H:%M%Z")
 
     begin
-      c = Competition.create!(:name => name, :start_date => start_date, :end_date => end_date, :tz_identifier => timezone.identifier)
+      c = Competition.new(:name          => name,
+                          :start_date    => start_date,
+                          :end_date      => end_date,
+                          :tz_identifier => timezone.identifier)
+      c.save!
 
       redirect "/competitions/#{c._id.to_s}"
 
     rescue MongoMapper::DocumentNotValid => error
-      @zones = TimezonePrinter.filtered_list
-      haml :'competitions/new', :layout => :default_layout,
+      @competition = c
+      @zones       = TimezonePrinter.filtered_list
+      haml :'competitions/new',
+           :layout => :default_layout,
            :locals => {:params => params}
     end
   end
@@ -35,6 +41,9 @@ class OSGCCWeb
   end
 
   get '/competitions/new', :authorize => :admin do
+    @competition = Competition.new(:start_date => DateTime.now,
+                                   :end_date   => DateTime.now + 1.day,
+                                   :tz_identifier => "EST")
     @zones = TimezonePrinter.filtered_list
     haml :'competitions/new', :layout => :default_layout
   end

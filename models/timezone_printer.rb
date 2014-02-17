@@ -74,4 +74,11 @@ class TimezonePrinter
     @zone.utc_to_local(time).strftime('%A %B %-d, %Y %l:%M %P ') + abbr
   end
 
+  def to_date(time)
+    @zone.utc_to_local(time).strftime('%F')
+  end
+
+  def to_time(time)
+    @zone.utc_to_local(time).strftime('%H:%M')
+  end
 end

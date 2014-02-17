@@ -39,6 +39,22 @@ class Competition
     TimezonePrinter.new(timezone).to_local(end_date)
   end
 
+  def form_start_date
+    TimezonePrinter.new(timezone).to_date(start_date)
+  end
+
+  def form_end_date
+    TimezonePrinter.new(timezone).to_date(end_date)
+  end
+
+  def form_start_time
+    TimezonePrinter.new(timezone).to_time(start_date)
+  end
+
+  def form_end_time
+    TimezonePrinter.new(timezone).to_time(end_date)
+  end
+
   def passed?
     return DateTime.now > end_date
   end
