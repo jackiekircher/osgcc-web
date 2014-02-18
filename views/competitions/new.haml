@@ -33,7 +33,11 @@
 
     %select#timezone{:name => "timezone"}
       - @zones.each do |timezone, label|
-        %option{:value => timezone}
-          = label
+        - if @competition.timezone.name == timezone
+          %option{:value => timezone, :selected => "selected"}
+            = label
+        - else
+          %option{:value => timezone}
+            = label
 
   %input#submit{:type => 'submit', :value => 'Create Competition'}
