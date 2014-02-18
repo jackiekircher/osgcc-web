@@ -3,9 +3,9 @@
     %header
       %h1 #{competition.name}
     %p
-      Start Date: #{competition.formatted_start}
+      Start Date: #{formatted_date(competition.start)}
     %p
-      End Date: #{competition.formatted_end}
+      End Date: #{formatted_date(competition.end)}
     %p
       %a{:href => url("/competitions/#{competition._id}")}
         Details

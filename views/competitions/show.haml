@@ -2,9 +2,9 @@
   %h1 #{@competition.name}
 
   %p
-    #{@competition.formatted_start}
+    #{formatted_date(@competition.start)}
     to
-    #{@competition.formatted_end}
+    #{formatted_date(@competition.end)}
   - if authorized?
     %p
       %a{:href => url("/competitions/#{@competition._id}/edit")}

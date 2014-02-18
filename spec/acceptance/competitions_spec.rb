@@ -48,9 +48,9 @@ describe 'OSCGG-Web competitions', :type => :request do
         {
           :comp_name  => "test competition",
           :start_date => "2012-06-06",
-          :start_time => "6:00pm",
+          :start_time => "18:00",
           :end_date   => "2012-06-07",
-          :end_time   => "6:00pm"
+          :end_time   => "18:00"
         }
       end
 
@@ -65,7 +65,7 @@ describe 'OSCGG-Web competitions', :type => :request do
         fill_in 'start_time', :with => "18:00"
         fill_in 'end_date',   :with => "2012-06-07"
         fill_in 'end_time',   :with => "18:00"
-        select 'Greenwich', :from => "timezone"
+        select 'UTC', :from => "timezone"
         click_on 'Create Competition'
 
         page.should have_content "test competition"
@@ -80,11 +80,11 @@ describe 'OSCGG-Web competitions', :type => :request do
         fill_in 'start_time', :with => "18:00"
         fill_in 'end_date',   :with => "2012-06-07"
         fill_in 'end_time',   :with => "18:00"
-        select 'Greenwich', :from => "timezone"
+        select 'UTC', :from => "timezone"
         click_on 'Create Competition'
 
-        page.should have_content "June 6, 2012 6:00 pm GMT"
-        page.should have_content "June 7, 2012 6:00 pm GMT"
+        page.should have_content "June 6, 2012 6:00 pm UTC"
+        page.should have_content "June 7, 2012 6:00 pm UTC"
       end
     end
   end
@@ -92,10 +92,10 @@ describe 'OSCGG-Web competitions', :type => :request do
   describe "editing competitions" do
 
     let(:competition) do
-      Competition.create(:name          => "original name",
-                         :start_date    => DateTime.yesterday,
-                         :end_date      => DateTime.tomorrow,
-                         :tz_identifier => 'Greenwich')
+      Competition.create(:name       => "original name",
+                         :start_time => Time.now - 1.day,
+                         :end_time   => Time.now + 1.day,
+                         :time_zone   => 'UTC')
     end
 
     context "without a user" do
@@ -147,9 +147,9 @@ describe 'OSCGG-Web competitions', :type => :request do
 
         fill_in 'comp_name',  :with => "new name"
         fill_in 'start_date', :with => "1987-01-25"
-        fill_in 'start_time', :with => "12:00pm"
+        fill_in 'start_time', :with => "12:00"
         fill_in 'end_date',   :with => "1987-01-26"
-        fill_in 'end_time',   :with => "12:00pm"
+        fill_in 'end_time',   :with => "12:00"
         click_on "Update Competition"
 
         visit "/competitions/#{competition._id}"

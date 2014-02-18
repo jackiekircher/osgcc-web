@@ -8,22 +8,22 @@ class OSGCCWeb
   post "/competitions", :authorize => :admin do
 
     name       = params[:comp_name]
-    timezone   = TimezonePrinter.new(TZInfo::Timezone.get(params[:timezone]))
-    start_date = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}#{timezone.abbr}","%Y-%m-%dT%H:%M%Z")
-    end_date   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}#{timezone.abbr}","%Y-%m-%dT%H:%M%Z")
+    timezone   = ActiveSupport::TimeZone.new(params[:timezone])
+    start_time = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}","%Y-%m-%dT%H:%M")
+    end_time   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}","%Y-%m-%dT%H:%M")
 
     begin
-      c = Competition.new(:name          => name,
-                          :start_date    => start_date,
-                          :end_date      => end_date,
-                          :tz_identifier => timezone.identifier)
+      c = Competition.new(:name       => name,
+                          :start_time => start_time - timezone.utc_offset.seconds,
+                          :end_time   => end_time - timezone.utc_offset.seconds,
+                          :time_zone  => timezone.name)
       c.save!
 
       redirect "/competitions/#{c._id.to_s}"
 
     rescue MongoMapper::DocumentNotValid => error
       @competition = c
-      @zones       = TimezonePrinter.filtered_list
+      @zones       = ActiveSupport::TimeZone.zones_map
       haml :'competitions/new',
            :layout => :default_layout,
            :locals => {:params => params}
@@ -41,10 +41,10 @@ class OSGCCWeb
   end
 
   get '/competitions/new', :authorize => :admin do
-    @competition = Competition.new(:start_date => DateTime.now,
-                                   :end_date   => DateTime.now + 1.day,
-                                   :tz_identifier => "EST")
-    @zones = TimezonePrinter.filtered_list
+    @competition = Competition.new(:start_time => Time.now,
+                                   :end_time   => Time.now + 1.day,
+                                   :time_zone  => "Eastern Time (US & Canada)")
+    @zones = ActiveSupport::TimeZone.zones_map
     haml :'competitions/new', :layout => :default_layout
   end
 
@@ -62,9 +62,11 @@ class OSGCCWeb
     @competition = Competition.find(params[:id])
 
     name       = params[:comp_name]
-    start_date = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}","%Y-%m-%dT%H:%M")
-    end_date   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}","%Y-%m-%dT%H:%M")
-    @competition.update_attributes(:name => name, :start_date => start_date, :end_date => end_date)
+    start_time = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}","%Y-%m-%dT%H:%M")
+    end_time   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}","%Y-%m-%dT%H:%M")
+    @competition.update_attributes(:name       => name,
+                                   :start_time => start_time,
+                                   :end_time   => end_time)
 
     redirect "/competitions/#{@competition._id.to_s}"
   end

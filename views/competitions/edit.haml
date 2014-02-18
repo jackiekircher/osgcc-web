@@ -11,24 +11,24 @@
   %div.clearfix
     %input.time{:type     => 'date',
                 :name     => 'start_date',
-                :value    => @competition.form_start_date,
+                :value    => date_of(@competition.start),
                 :required => 'required'}
 
     %input.time{:type     => 'time',
                 :name     => 'start_time',
-                :value    => @competition.form_start_time,
+                :value    => time_of(@competition.start),
                 :required => 'required'}
 
     to
 
     %input.time{:type     => 'date',
                 :name     => 'end_date',
-                :value    => @competition.form_end_date,
+                :value    => date_of(@competition.end),
                 :required => 'required'}
 
     %input.time{:type     => 'time',
                 :name     => 'end_time',
-                :value    => @competition.form_end_time,
+                :value    => time_of(@competition.end),
                 :required => 'required'}
 
   %input#submit{:type => 'submit', :value => 'Update Competition'}

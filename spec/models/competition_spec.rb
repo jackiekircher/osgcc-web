@@ -4,20 +4,23 @@ describe Competition do
 
   let(:future_comp) do
     Competition.create(:name       => "future",
-                       :start_date => DateTime.tomorrow,
-                       :end_date   => DateTime.tomorrow + 1)
+                       :start_time => Time.now + 1.day,
+                       :end_time   => Time.now + 1.day + 1.hour,
+                       :time_zone  => "UTC")
   end
 
   let(:current_comp) do
     Competition.create(:name       => "in progress",
-                       :start_date => DateTime.yesterday,
-                       :end_date   => DateTime.tomorrow)
+                       :start_time => Time.now - 1.day,
+                       :end_time   => Time.now + 1.day,
+                       :time_zone  => "UTC")
   end
 
   let(:past_comp) do
     Competition.create(:name       => "past",
-                       :start_date => DateTime.yesterday - 1,
-                       :end_date   => DateTime.yesterday)
+                       :start_time => Time.now - 1.day - 1.hour,
+                       :end_time   => Time.now - 24.hours,
+                       :time_zone  => "UTC")
   end
 
   describe ".upcoming" do
@@ -95,12 +98,12 @@ describe Competition do
   describe "#passed?" do
 
     it "returns true if the contest end_date is in the past" do
-      c = Competition.new(:end_date => DateTime.yesterday)
+      c = Competition.new(:end_time => Time.now - 1.day)
       c.passed?.should be_true
     end
 
     it "returns false if the contest end_date is in the future" do
-      c = Competition.new(:end_date => DateTime.tomorrow)
+      c = Competition.new(:end_time => Time.now + 1.day)
       c.passed?.should be_false
     end
   end
@@ -108,32 +111,32 @@ describe Competition do
   describe "#upcoming?" do
 
     it "returns true if the contest start_date is in the future" do
-      c = Competition.new(:start_date => DateTime.tomorrow)
+      c = Competition.new(:start_time => Time.now + 1.day)
       c.upcoming?.should be_true
     end
 
     it "returns false if the contest start_date is in the past" do
-      c = Competition.new(:start_date => DateTime.yesterday)
+      c = Competition.new(:start_time => Time.now - 1.day)
       c.upcoming?.should be_false
     end
   end
 
   describe "#in_progress?" do
     it "returns true if the current time is between the start and end dates" do
-      c = Competition.new(:start_date => DateTime.yesterday,
-                          :end_date   => DateTime.tomorrow)
+      c = Competition.new(:start_time => Time.now - 1.day,
+                          :end_time   => Time.now + 1.day)
       c.in_progress?.should be_true
     end
 
     it "returns false if the contest is upcoming" do
-      c = Competition.new(:start_date => DateTime.tomorrow,
-                          :end_date   => DateTime.tomorrow + 1)
+      c = Competition.new(:start_time => Time.now + 1.day,
+                          :end_time   => Time.now + 1.day + 1.hour)
       c.in_progress?.should be_false
     end
 
     it "returns false if the contest has passed" do
-      c = Competition.new(:start_date => DateTime.yesterday - 1,
-                          :end_date   => DateTime.yesterday)
+      c = Competition.new(:start_time => Time.now - 1.day - 1.hour,
+                          :end_time   => Time.now - 1.day)
       c.in_progress?.should be_false
     end
   end
