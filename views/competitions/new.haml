@@ -9,10 +9,10 @@
                      :placeholder => 'New Competition Name',
                      :required    => 'required'}
   %div.clearfix
-    %input.time{:type    => 'date',
-                :name    => 'start_date',
-                :value   => date_of(@competition.start),
-                :requred => 'required'}
+    %input.time{:type     => 'date',
+                :name     => 'start_date',
+                :value    => date_of(@competition.start),
+                :required => 'required'}
 
     %input.time{:type     => 'time',
                 :name     => 'start_time',

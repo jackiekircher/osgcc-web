@@ -2,9 +2,9 @@
       :action => url("/competitions/#{@competition._id}"),
       :id => "competition"}
   %div.clearfix
-    %input#comp-name{:name => 'comp_name',
-                     :size => 30,
-                     :type => 'text',
+    %input#comp-name{:name  => 'comp_name',
+                     :size  => 30,
+                     :type  => 'text',
                      :value => @competition.name,
                      :placeholder => 'New Competition Name',
                      :required    => 'required'}
