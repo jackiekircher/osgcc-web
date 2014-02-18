@@ -31,4 +31,9 @@
                 :value    => time_of(@competition.end),
                 :required => 'required'}
 
+    %select#timezone{:name => "timezone"}
+      - @zones.each do |timezone, label|
+        %option{:value => timezone}
+          = label
+
   %input#submit{:type => 'submit', :value => 'Update Competition'}

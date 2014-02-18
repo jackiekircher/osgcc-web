@@ -55,6 +55,7 @@ class OSGCCWeb
 
   get '/competitions/:id/edit', :authorize => :admin do
     @competition = Competition.find(params[:id])
+    @zones       = ActiveSupport::TimeZone.zones_map
     haml :'competitions/edit', :layout => :default_layout
   end
 
@@ -62,11 +63,13 @@ class OSGCCWeb
     @competition = Competition.find(params[:id])
 
     name       = params[:comp_name]
+    timezone   = ActiveSupport::TimeZone.new(params[:timezone])
     start_time = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}","%Y-%m-%dT%H:%M")
     end_time   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}","%Y-%m-%dT%H:%M")
     @competition.update_attributes(:name       => name,
-                                   :start_time => start_time,
-                                   :end_time   => end_time)
+                                   :start_time => start_time - timezone.utc_offset.seconds,
+                                   :end_time   => end_time - timezone.utc_offset.seconds,
+                                   :time_zone  => timezone.name)
 
     redirect "/competitions/#{@competition._id.to_s}"
   end
