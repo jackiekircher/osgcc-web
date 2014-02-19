@@ -12,6 +12,15 @@ class Competition
 
   timestamps!
 
+  validate :end_time_is_greater_than_start_time
+
+  def end_time_is_greater_than_start_time
+    if end_time.to_i <= start_time.to_i
+      errors.add(:end_time,
+                 "The end time of the competition must be later than the start time.")
+    end
+  end
+
   def self.upcoming
     Competition.where(:start_time.gt => Time.now)
   end

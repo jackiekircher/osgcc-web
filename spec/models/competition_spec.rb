@@ -23,6 +23,19 @@ describe Competition do
                        :time_zone  => "UTC")
   end
 
+  describe "validates" do
+
+    it "that the end time is greater than the start time" do
+
+      c = Competition.new(:name => "invalid",
+                          :start_time => Time.now,
+                          :end_time => Time.now,
+                          :time_zone => "UTC")
+      lambda{ c.save! }.should raise_error(MongoMapper::DocumentNotValid)
+
+    end
+  end
+
   describe ".upcoming" do
 
     it "returns all competitions that haven't started yet" do

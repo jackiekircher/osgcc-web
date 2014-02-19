@@ -23,10 +23,10 @@ class OSGCCWeb
 
     rescue MongoMapper::DocumentNotValid => error
       @competition = c
+      @errors      = c.errors
       @zones       = ActiveSupport::TimeZone.zones_map
       haml :'competitions/new',
-           :layout => :default_layout,
-           :locals => {:params => params}
+           :layout => :default_layout
     end
   end
 

@@ -1,3 +1,10 @@
+- if @errors
+  %div#validation-errors
+    %ul
+    - @errors.each do |field, message|
+      %li
+        = message
+
 %form{:method => 'post',
       :action => url('/competitions'),
       :id => "competition"}

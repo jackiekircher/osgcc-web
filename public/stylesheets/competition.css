@@ -1,3 +1,13 @@
+#validation-errors {
+  display: inline-block;
+  list-style: none;
+  padding: 1em;
+  margin-bottom: 4em;
+  color: #FC7988;
+  line-height: 0;
+  border: 2px solid #FC7988;
+}
+
 form#competition, form#competition input, form#competition select {
   color: #2C9113;
 }
