@@ -2,25 +2,39 @@ form#competition, form#competition input, form#competition select {
   color: #2C9113;
 }
 
+form#competition label {
+  display:block;
+  font-size: 1.3em;
+}
+
 form#competition input#comp-name {
-  margin: 1em 0;
-  height: 48px;
-  font-size: 48px;
+  margin: 0.2em 0 1em;
+  height: 1.5em;
+  font-size: 2.5em;
+}
+
+form#competition #times label {
+  width: 6em;
+  display: inline-block;
+  font-size: 1.3em;
 }
 
 form#competition input.time {
   display: inline-block;
-  margin-bottom: 3em;
+  margin: 0 4em 2em 0;
   width: 10em;
-  font-size: 14px;
+  font-size: 1.3em;
 }
 
 form#competition select#timezone {
-  font-size: 14px;
-  margin-left: 1em;
+  font-size: 1.3em;
+  padding: 0.3em;
+  margin: 0 1em 4em 0;
 }
 
 form#competition input#submit {
-  font-size: 24px;
+  margin-left: 4.5em;
+  font-size: 2em;
   color: #2C9113;
+  -webkit-appearance: button;
 }
