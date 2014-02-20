@@ -18,8 +18,7 @@ class OSGCCWeb
   end
 
   get '/logout' do
-    session[:user_uid]   = nil
-    session[:user_token] = nil
+    session.clear
     redirect '/'
   end
 end

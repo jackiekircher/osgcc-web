@@ -1,0 +1,11 @@
+test:
+  DOMAIN: example.com
+  SECRET_TOKEN:
+
+development:
+  DOMAIN: localhost
+  SECRET_TOKEN:
+
+production:
+  DOMAIN:
+  SECRET_TOKEN:

@@ -6,7 +6,10 @@ class OSGCCWeb < Sinatra::Base
   set :app_file, '.'
   set :haml, :format => :html5
 
-  enable :sessions
+  use Rack::Session::Cookie, :key    => 'rack.session',
+                             :domain => ENV['DOMAIN'],
+                             :expire_after => 172800, # 48 hours
+                             :secret => ENV['SECRET_TOKEN']
 end
 
 %w(config helpers controllers models).each do |dir|
