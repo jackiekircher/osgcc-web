@@ -62,6 +62,8 @@ li.dropdown ul.dropdown-menu {
   font-size: 1em;
   position: absolute;
   margin-left: -0.8em;
+  padding-left: 1.6em;
+  width: 6.1em;
   background: white;
   border: 0.2em solid #2C9113;
   border-top: none;
@@ -76,7 +78,7 @@ li.dropdown:hover ul.dropdown-menu {
 }
 
 li.dropdown:hover ul.dropdown-menu li{
-  margin: 0.3em 1.45em 0.3em -10px;
+  margin: 0.3em 0em;
   padding: 0;
   font-size: 0.9em;
 }

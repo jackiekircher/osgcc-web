@@ -34,9 +34,10 @@
             %li
               %a{:href => '/competitions/upcoming'}
                 Upcoming
-            %li
-              %a{:href => url('/competitions/new')}
-                Create New
+            - if authorized?
+              %li
+                %a{:href => url('/competitions/new')}
+                  Create New
 
             -#
               - if (current_comps.length)
