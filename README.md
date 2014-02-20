@@ -7,9 +7,7 @@ Node.js.
 
 Open Source Game Coding Competition registration, competition, and judging.
 
-Front-end: Twitter Bootstrap
-
-Back-end: Ruby + Sinatra + MongoDB
+Ruby + Sinatra + MongoDB
 
 Authentication via Github OAuth
 
@@ -21,8 +19,13 @@ register the app on Github (https://github.com/settings/applications)
 
 set the callback url to your.domain/auth/github/callback
 
+[install MongoDB](http://docs.mongodb.org/manual/installation/)
+
 `cp api_keys.sample.yml api_keys.yml` and fill in your client id and client
 secret
+
+`cp env_keys.sample.yml env_keys.yml` and add a secret token for session
+cookies. a simple way to do this is by running `ruby -rsecurerandom -e "puts SecureRandom.hex(32)"`
 
 `rackup`
 
