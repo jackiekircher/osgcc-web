@@ -31,7 +31,7 @@ describe Competition do
                           :start_time => Time.now,
                           :end_time => Time.now,
                           :time_zone => "UTC")
-      lambda{ c.save! }.should raise_error(MongoMapper::DocumentNotValid)
+      c.valid?.should be_false
 
     end
   end
