@@ -19,16 +19,23 @@ describe Team do
 
   describe "#full?" do
 
-    it "returns true if the team has 3 members" do
-      users = (0..2).map{ |i| User.create(:uid => i) }
+    it "returns true if the team has <team_limit> members" do
+      users = (1..Team::TEAM_LIMIT).map{ |i| User.create(:uid => i) }
       t = Team.new(:users => users)
       t.full?.should be_true
     end
 
     it "returns false if the team has less than 3 members" do
-      users = (0..1).map{ |i| User.create(:uid => i) }
+      users = (1..Team::TEAM_LIMIT-1).map{ |i| User.create(:uid => i) }
       t = Team.new(:users => users)
       t.full?.should be_false
     end
+
+    it "cannot have more than three members" do
+      users = (1..Team::TEAM_LIMIT+1).map{ |i| User.create(:uid => i) }
+      t = Team.new(:users => users, :name => "foo", :competition_id => 1)
+      t.valid?.should be_false
+    end
   end
+
 end

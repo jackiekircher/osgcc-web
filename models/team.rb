@@ -10,7 +10,15 @@ class Team
 
   timestamps!
 
+  validate :cannot_have_more_members_than_limit
+
   TEAM_LIMIT = 3
+
+  def cannot_have_more_members_than_limit
+    if users.length > TEAM_LIMIT
+      errors.add(:users, "Teams cannot have more than #{TEAM_LIMIT} members.")
+    end
+  end
 
   def member?(user)
     return users.include? user
