@@ -6,7 +6,7 @@ class Team
   key :competition_id, Integer, :required => true
 
   belongs_to :competition
-  many       :users, :in => :user_ids, :class_name => "User"
+  many       :members, :in => :user_ids, :class_name => "User"
 
   timestamps!
 
@@ -15,16 +15,16 @@ class Team
   TEAM_LIMIT = 3
 
   def cannot_have_more_members_than_limit
-    if users.length > TEAM_LIMIT
-      errors.add(:users, "Teams cannot have more than #{TEAM_LIMIT} members.")
+    if members.length > TEAM_LIMIT
+      errors.add(:members, "Teams cannot have more than #{TEAM_LIMIT} members.")
     end
   end
 
   def member?(user)
-    return users.include? user
+    return members.include? user
   end
 
   def full?
-    return users.count >= TEAM_LIMIT
+    return members.count >= TEAM_LIMIT
   end
 end
