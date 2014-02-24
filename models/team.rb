@@ -20,4 +20,11 @@ class Team < ActiveRecord::Base
   def full?
     members.length >= TEAM_LIMIT
   end
+
+  def add_member(user)
+    return false if full?
+
+    members << user
+    return true
+  end
 end

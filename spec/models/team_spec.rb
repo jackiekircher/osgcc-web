@@ -38,4 +38,27 @@ describe Team do
     end
   end
 
+  describe "#add_member" do
+
+    it "returns false if the team is full" do
+      team = Team.new
+      user = User.new
+      team.stub(:full? => true)
+      team.add_member(user).should be_false
+    end
+
+    it "returns true if a member is added" do
+      team = Team.new
+      user = User.new
+      team.add_member(user).should be_true
+    end
+
+    it "adds the user to the list of members" do
+      team = Team.new
+      user = User.new
+      team.add_member(user)
+      team.members.should include user
+    end
+  end
+
 end
