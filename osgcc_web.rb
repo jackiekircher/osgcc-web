@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'mongo_mapper'
+require 'sinatra/activerecord'
 require 'debugger'
 
 class OSGCCWeb < Sinatra::Base

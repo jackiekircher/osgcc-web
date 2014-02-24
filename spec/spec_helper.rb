@@ -2,14 +2,11 @@ ENV['RACK_ENV'] = 'test'
 
 require 'capybara/rspec'
 require 'database_cleaner'
-require 'mongo_mapper'
+require 'active_record'
 require 'omniauth'
 require 'rack/test'
 require_relative '../osgcc_web'
 require_relative './acceptance_helpers.rb'
-
-MongoMapper.connection = Mongo::Connection.new('localhost')
-MongoMapper.database   = "osgcc_test"
 
 Capybara.app = OSGCCWeb
 
@@ -29,7 +26,11 @@ RSpec.configure do |config|
   )
 
   config.before(:suite) do
-    DatabaseCleaner[:mongo_mapper].strategy = :truncation
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
   end
 
   config.after(:each) do

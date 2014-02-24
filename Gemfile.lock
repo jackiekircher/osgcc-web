@@ -1,17 +1,23 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (3.2.8)
-      activesupport (= 3.2.8)
+    activemodel (3.2.17)
+      activesupport (= 3.2.17)
       builder (~> 3.0.0)
-    activesupport (3.2.8)
-      i18n (~> 0.6)
+    activerecord (3.2.17)
+      activemodel (= 3.2.17)
+      activesupport (= 3.2.17)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activesupport (3.2.17)
+      i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.2)
+    arel (3.0.3)
     bson (1.6.4)
     bson_ext (1.6.4)
       bson (~> 1.6.4)
-    builder (3.0.0)
+    builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -36,18 +42,12 @@ GEM
     haml (3.1.7)
     hashie (1.2.0)
     httpauth (0.1)
-    i18n (0.6.0)
+    i18n (0.6.9)
     jwt (0.1.5)
       multi_json (>= 1.0)
     libwebsocket (0.1.5)
       addressable
     mime-types (1.19)
-    mongo (1.6.4)
-      bson (~> 1.6.4)
-    mongo_mapper (0.11.2)
-      activemodel (~> 3.0)
-      activesupport (~> 3.0)
-      plucky (~> 0.5.1)
     multi_json (1.3.6)
     multipart-post (1.1.5)
     nokogiri (1.5.5)
@@ -66,13 +66,13 @@ GEM
     omniauth-oauth2 (1.1.0)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
-    plucky (0.5.1)
-      mongo (~> 1.5)
+    pg (0.17.1)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    rake (10.1.0)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -91,6 +91,9 @@ GEM
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
       tilt (~> 1.3, >= 1.3.3)
+    sinatra-activerecord (1.3.0)
+      activerecord (>= 3.0)
+      sinatra (~> 1.0)
     tilt (1.3.3)
     tzinfo (0.3.33)
     xpath (0.1.4)
@@ -105,10 +108,12 @@ DEPENDENCIES
   database_cleaner
   debugger
   haml
-  mongo_mapper
   omniauth
   omniauth-github
+  pg
   rack-test
+  rake
   rspec
   sinatra
+  sinatra-activerecord
   tzinfo

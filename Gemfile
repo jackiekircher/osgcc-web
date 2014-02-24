@@ -2,8 +2,10 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'haml'
-gem 'mongo_mapper'
-gem 'bson_ext'
+gem 'pg'
+gem 'sinatra-activerecord'
+gem 'rake'
+gem 'bson_ext' # check dependency
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'tzinfo'
