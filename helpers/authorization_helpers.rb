@@ -6,7 +6,7 @@ module AuthorizationHelpers
 
   def current_user
     if session[:user_uid]
-      @current_user ||= User.first(:uid => session[:user_uid])
+      @current_user ||= User.where(:uid => session[:user_uid]).first
     end
   end
 

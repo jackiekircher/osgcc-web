@@ -100,17 +100,17 @@ describe 'OSCGG-Web competitions', :type => :request do
 
     context "without a user" do
       it "doesn't show the edit button" do
-        visit "/competitions/#{competition._id}"
+        visit "/competitions/#{competition.id}"
         page.should_not have_content "Edit"
       end
 
       it "returns a 404" do
-        visit "/competitions/#{competition._id}/edit"
+        visit "/competitions/#{competition.id}/edit"
         page.status_code.should == 404
       end
 
       it "via post returns a 404" do
-        post "/competitions/#{competition._id}/edit"
+        post "/competitions/#{competition.id}/edit"
         last_response.status.should == 404
       end
     end
@@ -121,17 +121,17 @@ describe 'OSCGG-Web competitions', :type => :request do
       end
 
       it "doesn't show the edit button" do
-        visit "/competitions/#{competition._id}"
+        visit "/competitions/#{competition.id}"
         page.should_not have_content "Edit"
       end
 
       it "returns a 404" do
-        visit "/competitions/#{competition._id}/edit"
+        visit "/competitions/#{competition.id}/edit"
         page.status_code.should == 404
       end
 
       it "via post returns a 404" do
-        post "/competitions/#{competition._id}/edit"
+        post "/competitions/#{competition.id}/edit"
         last_response.status.should == 404
       end
     end
@@ -142,7 +142,7 @@ describe 'OSCGG-Web competitions', :type => :request do
       end
 
       it "you can edit a competition" do
-        visit "/competitions/#{competition._id}"
+        visit "/competitions/#{competition.id}"
         click_on "Edit"
 
         fill_in 'comp_name',  :with => "new name"
@@ -152,7 +152,7 @@ describe 'OSCGG-Web competitions', :type => :request do
         fill_in 'end_time',   :with => "12:00"
         click_on "Update Competition"
 
-        visit "/competitions/#{competition._id}"
+        visit "/competitions/#{competition.id}"
         page.should have_content "new name"
         page.should have_content "January 25, 1987 12:00 pm"
         page.should have_content "January 25, 1987 12:00 pm"

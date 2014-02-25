@@ -6,7 +6,7 @@ class OSGCCWeb
   get '/auth/github/callback' do
     auth = request.env["omniauth.auth"]
 
-    user   = User.first( :uid => auth['uid'] )
+    user   = User.where(:uid => auth['uid']).first
     user ||= User.create(:uid        => auth['uid'],
                          :username   => auth['info']['nickname'],
                          :image_url  => auth['info']['image'],

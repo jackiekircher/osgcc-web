@@ -19,7 +19,7 @@ class OSGCCWeb
                           :time_zone  => timezone.name)
       c.save!
 
-      redirect "/competitions/#{c._id.to_s}"
+      redirect "/competitions/#{c.id}"
 
     rescue MongoMapper::DocumentNotValid => error
       @competition = c
@@ -71,6 +71,6 @@ class OSGCCWeb
                                    :end_time   => end_time - timezone.utc_offset.seconds,
                                    :time_zone  => timezone.name)
 
-    redirect "/competitions/#{@competition._id.to_s}"
+    redirect "/competitions/#{@competition.id}"
   end
 end

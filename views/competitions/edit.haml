@@ -6,7 +6,7 @@
         = message
 
 %form{:method => 'post',
-      :action => url("/competitions/#{@competition._id}"),
+      :action => url("/competitions/#{@competition.id}"),
       :id => "competition"}
   %div.clearfix
     %label{:for => 'comp-name'}
