@@ -1,16 +1,11 @@
 require 'active_support/time'
 
-class Competition
-  include MongoMapper::Document
-
-  key :name,       String, :required => true
-  key :start_time, Time,   :required => true
-  key :end_time,   Time,   :required => true
-  key :time_zone,  String, :required => true
-
-  many :teams
-
-  timestamps!
+class Competition < ActiveRecord::Base
+  validates_presence_of :name,
+                        :start_time,
+                        :end_time,
+                        :time_zone
+  # many :teams
 
   validate :end_time_is_greater_than_start_time
 
@@ -22,20 +17,19 @@ class Competition
   end
 
   def self.upcoming
-    Competition.where(:start_time.gt => Time.now)
+    where("start_time > ?", Time.now)
   end
 
   def self.in_progress
-    Competition.where(:start_time.lte => Time.now,
-                      :end_time.gte   => Time.now)
+    where("start_time <= ? AND end_time >= ?", Time.now, Time.now)
   end
 
   def self.passed
-    Competition.where(:end_time.lt => Time.now)
+    where("end_time < ?", Time.now)
   end
 
   def self.upcoming_or_in_progress
-    Competition.where(:end_time.gt => Time.now)
+    where("end_time > ?", Time.now)
   end
 
   def timezone
@@ -59,14 +53,14 @@ class Competition
   end
 
   def passed?
-    return Time.now > end_time
+    Time.now > end_time
   end
 
   def upcoming?
-    return Time.now < start_time
+    Time.now < start_time
   end
 
   def in_progress?
-    return !(passed? || upcoming?)
+    !(passed? || upcoming?)
   end
 end
