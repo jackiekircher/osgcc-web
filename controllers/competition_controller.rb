@@ -6,11 +6,12 @@ class OSGCCWeb
   end
 
   post "/competitions", :authorize => :admin do
+    Time.zone = "UTC"
 
     name       = params[:comp_name]
     timezone   = ActiveSupport::TimeZone.new(params[:timezone])
-    start_time = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}","%Y-%m-%dT%H:%M")
-    end_time   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}","%Y-%m-%dT%H:%M")
+    start_time = Time.zone.parse("#{params[:start_date]} #{params[:start_time]}")
+    end_time   = Time.zone.parse("#{params[:end_date]} #{params[:end_time]}")
 
     begin
       c = Competition.new(:name       => name,
@@ -60,12 +61,13 @@ class OSGCCWeb
   end
 
   post '/competitions/:id', :authorize => :admin do
+    Time.zone    = "UTC"
     @competition = Competition.find(params[:id])
 
     name       = params[:comp_name]
     timezone   = ActiveSupport::TimeZone.new(params[:timezone])
-    start_time = DateTime.strptime("#{params[:start_date]}T#{params[:start_time]}","%Y-%m-%dT%H:%M")
-    end_time   = DateTime.strptime("#{params[:end_date]}T#{params[:end_time]}","%Y-%m-%dT%H:%M")
+    start_time = Time.zone.parse("#{params[:start_date]} #{params[:start_time]}")
+    end_time   = Time.zone.parse("#{params[:end_date]} #{params[:end_time]}")
     @competition.update_attributes(:name       => name,
                                    :start_time => start_time - timezone.utc_offset.seconds,
                                    :end_time   => end_time - timezone.utc_offset.seconds,
