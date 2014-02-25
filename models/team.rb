@@ -1,16 +1,9 @@
-class Team
-  include MongoMapper::Document
+class Team < ActiveRecord::Base
+  validates :name, :competition_id, presence: true
+  validate  :cannot_have_more_members_than_limit
 
-  key :name,           String,  :required => true
-  key :user_ids,       Array,   :default => []
-  key :competition_id, Integer, :required => true
-
-  belongs_to :competition
-  many       :members, :in => :user_ids, :class_name => "User"
-
-  timestamps!
-
-  validate :cannot_have_more_members_than_limit
+  belongs_to :competition, inverse_of: :teams
+  has_and_belongs_to_many :members, class_name: "User"
 
   TEAM_LIMIT = 3
 
@@ -21,10 +14,10 @@ class Team
   end
 
   def member?(user)
-    return members.include? user
+    members.include? user
   end
 
   def full?
-    return members.count >= TEAM_LIMIT
+    members.length >= TEAM_LIMIT
   end
 end
