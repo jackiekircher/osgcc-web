@@ -14,9 +14,6 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.2)
     arel (3.0.3)
-    bson (1.6.4)
-    bson_ext (1.6.4)
-      bson (~> 1.6.4)
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -103,7 +100,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bson_ext
   capybara
   database_cleaner
   debugger

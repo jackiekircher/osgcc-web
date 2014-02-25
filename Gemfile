@@ -5,7 +5,6 @@ gem 'haml'
 gem 'pg'
 gem 'sinatra-activerecord'
 gem 'rake'
-gem 'bson_ext' # check dependency
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'tzinfo'
