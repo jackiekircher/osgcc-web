@@ -27,4 +27,8 @@ class Team < ActiveRecord::Base
     members << user
     return true
   end
+
+  def remove_member(user)
+    members.delete(user)
+  end
 end
