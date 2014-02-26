@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :uid, presence: true
+  validates_presence_of :uid
 
   has_and_belongs_to_many :teams
 

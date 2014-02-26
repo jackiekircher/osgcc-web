@@ -7,7 +7,7 @@ class Competition < ActiveRecord::Base
                         :time_zone
   validate :end_time_is_greater_than_start_time
 
-  has_many :teams, inverse_of: :competition
+  has_many :teams, :inverse_of => :competition
 
   def end_time_is_greater_than_start_time
     if end_time.to_i <= start_time.to_i

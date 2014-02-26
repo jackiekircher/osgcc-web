@@ -1,9 +1,9 @@
 class Team < ActiveRecord::Base
-  validates :name, :competition_id, presence: true
-  validate  :cannot_have_more_members_than_limit
+  validates_presence_of :name, :competition_id
+  validate :cannot_have_more_members_than_limit
 
-  belongs_to :competition, inverse_of: :teams
-  has_and_belongs_to_many :members, class_name: "User"
+  belongs_to :competition, :inverse_of => :teams
+  has_and_belongs_to_many :members, :class_name => "User"
 
   TEAM_LIMIT = 3
 

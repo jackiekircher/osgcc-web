@@ -7,7 +7,7 @@ class CreateTeams < ActiveRecord::Migration
       t.timestamps
     end
 
-    create_table :teams_users, id: false do |t|
+    create_table :teams_users, :id => false do |t|
       t.belongs_to :team
       t.belongs_to :user
     end
