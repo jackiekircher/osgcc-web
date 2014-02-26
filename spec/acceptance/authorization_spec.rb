@@ -1,6 +1,6 @@
 require_relative '../spec_helper.rb'
 
-describe 'OSGCC-Web authentications', :type => :request do
+describe 'OSGCC-Web authentications', :type => :feature do
 
   def app
     OSGCCWeb

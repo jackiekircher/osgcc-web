@@ -1,6 +1,6 @@
 require_relative '../spec_helper.rb'
 
-describe 'OSCGG-Web competitions', :type => :request do
+describe 'OSCGG-Web competitions', :type => :feature do
 
   def app
     OSGCCWeb
