@@ -8,7 +8,7 @@ gem 'rake'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'tzinfo'
-gem 'debugger'
+gem 'debugger2'
 
 group :test do
   gem 'capybara'
