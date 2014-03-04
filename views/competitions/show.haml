@@ -7,5 +7,5 @@
     #{formatted_date(@competition.end)}
   - if authorized?
     %p
-      %a{:href => url("/competitions/#{@competition.id}/edit")}
+      %a.button{:href => url("/competitions/#{@competition.id}/edit")}
         Edit

@@ -6,6 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+a:hover {
+  text-decoration: underline;
+}
+
+a.button {
+  color: #fff;
+  background-color: #2C9113;
+  text-decoration: none;
+  padding: 0.3em 1.2em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 0.2em solid #2C9113;
+}
+a.button:hover {
+  color: #2C9113;
+  background-color: #FFF;
+}
 
 header {
   background: #2C9113;
@@ -62,8 +80,8 @@ li.dropdown ul.dropdown-menu {
   font-size: 1em;
   position: absolute;
   margin-left: -0.8em;
-  padding-left: 1.6em;
-  width: 6.1em;
+  padding: 0;
+  width: 7.7em;
   background: white;
   border: 0.2em solid #2C9113;
   border-top: none;
@@ -72,19 +90,24 @@ li.dropdown ul.dropdown-menu {
 li.dropdown ul.dropdown-menu a {
   color: #2C9113;
 }
+li.dropdown ul.dropdown-menu li:hover a {
+  color: #FFF;
+}
 
 li.dropdown:hover ul.dropdown-menu {
   display: block;
 }
 
-li.dropdown:hover ul.dropdown-menu li{
+li.dropdown:hover ul.dropdown-menu li {
   margin: 0.3em 0em;
-  padding: 0;
+  padding-left: 1.6em;
   font-size: 0.9em;
+  display: block;
 }
 
-li.dropdown:hover ul.dropdown-menu li{
-  display: block;
+li.dropdown:hover ul.dropdown-menu li:hover {
+  color: #FFF;
+  background-color: #2C9113;
 }
 
 .content header {
