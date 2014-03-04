@@ -51,9 +51,23 @@ header .header-wrap ul.account {
   float: right;
   display: block;
 }
+
 header .header-wrap ul.account li {
   display: inline-block;
   margin-right: 1.5em;
+  padding: 0.3em 0.6em;
+  border: 0.2em solid #2C9113;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+header .header-wrap ul.account li:hover {
+  background: #FFF;
+}
+
+header .header-wrap ul.account li:hover a {
+  color: #2C9113;
 }
 
 header .header-wrap nav {
