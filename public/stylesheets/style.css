@@ -30,6 +30,7 @@ header {
 }
 
 header .header-wrap{
+  height: 11em;
   width: 80%;
   margin: 0 auto;
   padding: 0.1em;
@@ -55,16 +56,30 @@ header .header-wrap ul.account li {
   margin-right: 1.5em;
 }
 
-header .header-wrap nav ul{
+header .header-wrap nav {
+  position: absolute;
+  margin-top: -2.3em;
+}
+
+header .header-wrap nav ul {
   list-style: none;
   font-size: 1.5em;
 }
 
-header .header-wrap nav ul li{
+header .header-wrap nav ul li {
   display: inline-block;
-  padding: 4px 0.6em 6px 0.6em;
+  padding: 4px 0 6px;
   margin-right: 1.5em;
   line-height: 1.5em;
+  float: left;
+  border: 0.2em solid #2C9113;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+
+nav ul li a {
+  padding: 0 0.5em;
 }
 
 header .header-wrap nav ul li:hover {
@@ -78,13 +93,9 @@ li.dropdown ul.dropdown-menu {
   display: none;
   color: #2C9113;
   font-size: 1em;
-  position: absolute;
-  margin-left: -0.8em;
+  margin: 0;
   padding: 0;
-  width: 7.7em;
   background: white;
-  border: 0.2em solid #2C9113;
-  border-top: none;
 }
 
 li.dropdown ul.dropdown-menu a {
@@ -103,6 +114,11 @@ li.dropdown:hover ul.dropdown-menu li {
   padding-left: 1.6em;
   font-size: 0.9em;
   display: block;
+  float: none;
+  border: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
 }
 
 li.dropdown:hover ul.dropdown-menu li:hover {
