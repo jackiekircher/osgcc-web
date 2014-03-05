@@ -5,7 +5,10 @@
     #{formatted_date(@competition.start)}
     to
     #{formatted_date(@competition.end)}
-  - if authorized?
-    %p
-      %a.button{:href => url("/competitions/#{@competition.id}/edit")}
-        Edit
+  %footer
+    - if logged_in?
+      %a.button{:href =>url("/competitions/#{@competition.id}/teams/new")}
+        Create Team
+      - if authorized?
+        %a.button{:href => url("/competitions/#{@competition.id}/edit")}
+          Edit

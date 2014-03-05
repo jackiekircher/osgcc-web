@@ -1,0 +1,22 @@
+- if @errors
+  %div#validation-errors
+    %ul
+    - @errors.each do |field, message|
+      %li
+        = message
+
+%form{:method => 'post',
+      :action => url("/competitions/#{@competition.id}/teams"),
+      :id => "team"}
+  %div.clearfix
+    %label{:for => 'team-name'}
+      team name:
+    %input#team-name{:name  => 'team_name',
+                     :size  => 30,
+                     :type  => 'text',
+                     :value => @team.name,
+                     :placeholder => 'Team Name',
+                     :required    => 'required'}
+
+  %input#submit{:type  => 'submit',
+                :value => 'Create Team'}

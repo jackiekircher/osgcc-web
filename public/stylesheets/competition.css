@@ -48,3 +48,12 @@ form#competition input#submit {
   color: #2C9113;
   -webkit-appearance: button;
 }
+
+.competition {
+  width: 65%;
+}
+
+.competition footer {
+  margin-top: 2em;
+  text-align: right;
+}
