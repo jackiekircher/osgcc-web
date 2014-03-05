@@ -5,6 +5,20 @@
     #{formatted_date(@competition.start)}
     to
     #{formatted_date(@competition.end)}
+
+  - if @competition.teams.any?
+
+    %h2 Teams
+    %ul#teams
+      - @competition.teams.each do |team|
+        %li
+          = team.name
+          %h3 Members
+          %ul.team-members
+            - team.members.each do |member|
+              %li
+                = member.username
+
   %footer
     - if logged_in?
       %a.button{:href =>url("/competitions/#{@competition.id}/teams/new")}
@@ -12,3 +26,4 @@
       - if authorized?
         %a.button{:href => url("/competitions/#{@competition.id}/edit")}
           Edit
+
