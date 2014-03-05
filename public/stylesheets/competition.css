@@ -1,5 +1,45 @@
-.competition {
-  width: 65%;
+.competition h1 {
+  font-size: 2em;
+  margin-bottom: 0;
+  padding-bottom: 0.4em;
+  border-bottom: 2px solid #2C9113;
+}
+
+.competition h2 {
+  font-size: 1.4em;
+}
+
+.competition h3 {
+  color: #000;
+  font-size: 1.4em;
+}
+
+.competition p.schedule {
+  color: #2C9113;
+  text-align: right;
+  margin-top: 0.3em;
+}
+
+.competition #teams {
+  margin-left: 2em;
+}
+
+.competition ul {
+  padding: 0;
+  list-style: none;
+}
+
+.competition .team {
+  padding-left: 1em;
+  padding-bottom: 1.5em;
+  margin-left: 1.5em;
+  border-bottom: 2px solid #2C9113;
+}
+
+.competition .team .member {
+  display: inline-block;
+  padding: 0.5em 0;
+  margin-left: 1.5em;
 }
 
 .competition footer {

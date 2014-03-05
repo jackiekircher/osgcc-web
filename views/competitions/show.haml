@@ -1,23 +1,24 @@
 %section.competition
-  %h1 #{@competition.name}
+  %header
+    %h1 #{@competition.name}
 
-  %p
-    #{formatted_date(@competition.start)}
-    to
-    #{formatted_date(@competition.end)}
+    %p.schedule<
+      #{@competition.start.strftime('%-m/%-d/%y %l:%M%P')} - #{@competition.end.strftime('%-m/%-d/%y %l:%M%P %Z')}
 
   - if @competition.teams.any?
 
-    %h2 Teams
-    %ul#teams
-      - @competition.teams.each do |team|
-        %li
-          = team.name
-          %h3 Members
-          %ul.team-members
-            - team.members.each do |member|
-              %li
-                = member.username
+    %div#teams
+      %h2 Registered Teams
+      %ul
+        - @competition.teams.each do |team|
+          %li.team<
+            %h3>
+              = team.name
+            Members:
+            %ul.team-members>
+              - team.members.each do |member|
+                %li.member<
+                  = member.username
 
   %footer
     - if logged_in?

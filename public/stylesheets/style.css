@@ -3,6 +3,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1, h2, h3, h4 {
+  color: #2C9113;
+}
+
 a {
   color: #00B7FF;
 }
@@ -32,7 +36,8 @@ header {
 
 header .header-wrap{
   height: 11em;
-  width: 80%;
+  max-width: 55em;
+  min-width: 37em;
   margin: 0 auto;
   padding: 0.1em;
   color: white;
@@ -73,12 +78,15 @@ header .header-wrap ul.account li:hover a {
 
 header .header-wrap nav {
   position: absolute;
+  min-width: 37em;
   margin-top: -2.3em;
+  padding: 0 5em;
 }
 
 header .header-wrap nav ul {
   list-style: none;
   font-size: 1.5em;
+  padding: 0;
 }
 
 header .header-wrap nav ul li {
@@ -148,7 +156,8 @@ li.dropdown:hover ul.dropdown-menu li:hover {
 /* body */
 
 .container-fluid {
-  width: 80%;
+  max-width: 45em;
+  min-width: 37em;
   margin: 4em auto;
 }
 
