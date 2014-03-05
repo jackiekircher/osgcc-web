@@ -25,9 +25,13 @@ form input.name {
 
 form input.time {
   display: inline-block;
-  margin: 0 4em 2em 0;
-  width: 10em;
+  margin: 0 3em 2em 0;
+  width: 9em;
   font-size: 1.3em;
+}
+
+form input.last {
+  margin-right: 0;
 }
 
 form select#timezone {
@@ -38,9 +42,10 @@ form select#timezone {
 
 form input#submit {
   margin-left: 4.5em;
-  font-size: 2em;
-  color: #2C9113;
+  font-size: 1.5em;
   -webkit-appearance: button;
+  border-width: 0.1em;
+  float: right;
 }
 
 
@@ -49,7 +54,7 @@ form input#submit {
 form#competition #times label {
   width: 6em;
   display: inline-block;
-  font-size: 1.3em;
+  font-size: 1.2em;
 }
 
 /* teams */

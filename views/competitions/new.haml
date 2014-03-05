@@ -9,18 +9,18 @@
       :action => url('/competitions'),
       :id => "competition"}
   %div.clearfix
-    %label{:for => 'comp-name'}
+    %label{:for => 'comp-name'}<
       competition name:
     %input.name{:id    => 'comp-name',
                 :name  => 'comp_name',
-                :size  => 29,
+                :size  => 26,
                 :type  => 'text',
                 :value => @competition.name,
                 :placeholder => 'New Competition Name',
                 :required    => 'required'}
   %div#times
     %div.clearfix
-      %label{:for => 'start-date'}
+      %label{:for => 'start-date'}<
         start date:
       %input.time{:id       => 'start-date',
                   :type     => 'date',
@@ -28,16 +28,16 @@
                   :value    => date_of(@competition.start),
                   :required => 'required'}
 
-      %label{:for => 'start-time'}
+      %label{:for => 'start-time'}<
         start time:
-      %input.time{:id       => 'start-time',
-                  :type     => 'time',
-                  :name     => 'start_time',
-                  :value    => time_of(@competition.start),
-                  :required => 'required'}
+      %input.time.last{:id       => 'start-time',
+                       :type     => 'time',
+                       :name     => 'start_time',
+                       :value    => time_of(@competition.start),
+                       :required => 'required'}
 
     %div.clearfix
-      %label{:for => 'end-date'}
+      %label{:for => 'end-date'}<
         end date:
       %input.time{:id       => 'end-date',
                   :type     => 'date',
@@ -45,16 +45,16 @@
                   :value    => date_of(@competition.end),
                   :required => 'required'}
 
-      %label{:for => 'end-time'}
+      %label{:for => 'end-time'}<
         end time:
-      %input.time{:id       => 'end-time',
-                  :type     => 'time',
-                  :name     => 'end_time',
-                  :value    => time_of(@competition.end),
-                  :required => 'required'}
+      %input.time.last{:id       => 'end-time',
+                       :type     => 'time',
+                       :name     => 'end_time',
+                       :value    => time_of(@competition.end),
+                       :required => 'required'}
 
     %div.clearfix
-      %label{:for => 'timezone'}
+      %label{:for => 'timezone'}<
         time zone:
       %select#timezone{:name => "timezone"}
         - @zones.each do |timezone, label|
@@ -65,5 +65,5 @@
             %option{:value => timezone}
               = label
 
-  %input#submit{:type  => 'submit',
-                :value => 'Create Competition'}
+  %input#submit.button{:type  => 'submit',
+                       :value => 'Create Competition'}
