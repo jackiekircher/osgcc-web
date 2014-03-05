@@ -3,7 +3,9 @@ class Team < ActiveRecord::Base
   ##
   # name (String)
   #   an identifier for the team
-  validates :name, :presence => true
+  validates :name,
+            :presence => true,
+            :uniqueness => { :scope => :competition_id }
 
   ##
   # competition (Competition)
