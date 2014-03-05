@@ -18,6 +18,11 @@ class OSGCCWeb < Sinatra::Base
                              :domain => ENV['DOMAIN'],
                              :expire_after => 172800, # 48 hours
                              :secret => ENV['SECRET_TOKEN']
+
+  # close the connection to the database after each request so we don't
+  # reach maximum concurrent requests
+  # http://www.seanbehan.com/how-to-fix-activerecord-connectiontimeouterror-with-sinatra
+  after { ActiveRecord::Base.connection.close }
 end
 
 %w(config helpers controllers models).each do |dir|
