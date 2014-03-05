@@ -1,0 +1,56 @@
+#validation-errors {
+  display: inline-block;
+  list-style: none;
+  padding: 1em;
+  margin-bottom: 4em;
+  color: #FC7988;
+  line-height: 0;
+  border: 2px solid #FC7988;
+}
+
+form, form input, form select {
+  color: #2C9113;
+}
+
+form label {
+  display:block;
+  font-size: 1.3em;
+}
+
+form input.name {
+  margin: 0.2em 0 1em;
+  height: 1.5em;
+  font-size: 2.5em;
+}
+
+form input.time {
+  display: inline-block;
+  margin: 0 4em 2em 0;
+  width: 10em;
+  font-size: 1.3em;
+}
+
+form select#timezone {
+  font-size: 1.3em;
+  padding: 0.3em;
+  margin: 0 1em 4em 0;
+}
+
+form input#submit {
+  margin-left: 4.5em;
+  font-size: 2em;
+  color: #2C9113;
+  -webkit-appearance: button;
+}
+
+
+/* competitions */
+
+form#competition #times label {
+  width: 6em;
+  display: inline-block;
+  font-size: 1.3em;
+}
+
+/* teams */
+
