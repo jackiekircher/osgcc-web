@@ -2,6 +2,16 @@ require_relative '../spec_helper'
 
 describe Team do
 
+  it "enforces uniqueness of members" do
+
+    user = User.new
+    team = Team.new(:name           => "the fry guys",
+                    :competition_id => 1,
+                    :members        => [user])
+    team.members << user
+    team.valid?.should be_false
+  end
+
   describe "#member?" do
 
     let(:user) { User.create(:username => "Norman", :uid => 1234) }

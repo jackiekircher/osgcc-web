@@ -27,13 +27,19 @@ class Team < ActiveRecord::Base
   has_and_belongs_to_many :members, :class_name => "User"
 
   validate :cannot_have_more_members_than_limit
-
+  validate :members_must_be_unique
 
   TEAM_LIMIT = 3
 
   def cannot_have_more_members_than_limit
     if members.length > TEAM_LIMIT
       errors.add(:members, "Teams cannot have more than #{TEAM_LIMIT} members.")
+    end
+  end
+
+  def members_must_be_unique
+    if members.uniq.length != members.length
+      errors.add(:members, "Team members must be different people.")
     end
   end
 
