@@ -18,4 +18,13 @@ class OSGCCWeb
       haml :'teams/new', :layout => :default_layout
     end
   end
+
+  post '/team/:team_id/add_member/:user_id' do
+    @team = Team.includes(:competition).find(params[:team_id])
+    @user = User.find(params[:user_id])
+    @team.add_member(@user)
+    @team.save!
+
+    redirect "/competitions/#{@team.competition.id}"
+  end
 end

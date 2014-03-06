@@ -19,10 +19,16 @@
               - team.members.each do |member|
                 %li.member<
                   = member.username
+              - if !team.member?(current_user) && !team.full?
+                %li
+                  %form{:method => "post",
+                        :action => url("/team/#{team.id}/add_member/#{current_user.id}")}
+                    %input.button.join{:type  => 'submit',
+                                       :value => 'Join Team'}
 
   %footer
     - if logged_in?
-      %a.button{:href =>url("/competitions/#{@competition.id}/teams/new")}
+      %a.button{:href => url("/competitions/#{@competition.id}/teams/new")}
         Create Team
       - if authorized?
         %a.button{:href => url("/competitions/#{@competition.id}/edit")}
