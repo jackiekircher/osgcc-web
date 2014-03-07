@@ -32,6 +32,7 @@ a:hover {
 
 header {
   background: #2C9113;
+  z-index: 100;
 }
 
 header .header-wrap{
@@ -81,6 +82,7 @@ header .header-wrap nav {
   min-width: 37em;
   margin-top: -2.3em;
   padding: 0 5em;
+  z-index: 1000;
 }
 
 header .header-wrap nav ul {
