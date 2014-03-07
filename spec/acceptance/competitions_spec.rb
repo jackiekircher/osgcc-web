@@ -69,8 +69,8 @@ describe 'OSCGG-Web competitions', :type => :feature do
         click_on 'Create Competition'
 
         page.should have_content "test competition"
-        page.should have_content "6/6/12 6:00pm"
-        page.should have_content "6/7/12 6:00pm"
+        page.should have_content "06/06/12 06:00pm"
+        page.should have_content "06/07/12 06:00pm"
       end
 
       it "saves the timezone correctly for a competition" do
@@ -83,8 +83,8 @@ describe 'OSCGG-Web competitions', :type => :feature do
         select 'UTC', :from => "timezone"
         click_on 'Create Competition'
 
-        page.should have_content "6/6/12 6:00pm"
-        page.should have_content "6/7/12 6:00pm UTC"
+        page.should have_content "06/06/12 06:00pm"
+        page.should have_content "06/07/12 06:00pm UTC"
       end
     end
   end

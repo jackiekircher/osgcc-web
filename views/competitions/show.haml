@@ -3,7 +3,10 @@
     %h1 #{@competition.name}
 
     %p.schedule<
-      #{@competition.start.strftime('%-m/%-d/%y %l:%M%P')} - #{@competition.end.strftime('%-m/%-d/%y %l:%M%P %Z')}
+      %span.date<
+        #{@competition.start.strftime('%m/%d/%y %I:%M%P')} -
+      %span.date<
+        #{@competition.end.strftime('%m/%d/%y %I:%M%P %Z')}
 
   - if @competition.teams.any?
 

@@ -2,7 +2,9 @@
   font-size: 2em;
   margin-bottom: 0;
   padding-bottom: 0.4em;
-  border-bottom: 2px solid #2C9113;
+  float: left;
+  position: relative;
+  bottom: 0.5em
 }
 
 .competition h2 {
@@ -14,10 +16,19 @@
   font-size: 1.4em;
 }
 
+.competition header {
+  border-bottom: 2px solid #2C9113;
+}
+
 .competition p.schedule {
-  color: #2C9113;
   text-align: right;
-  margin-top: 0.3em;
+  font-size: 1.6em;
+  margin: 0.5em 0 0.5em 15em;
+  text-align: left;
+}
+
+.competition span.date {
+  display: block;
 }
 
 .competition #teams {
