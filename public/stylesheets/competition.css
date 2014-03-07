@@ -45,9 +45,14 @@
   margin-left: 1.5em;
 }
 
-.competition .team .join {
+.competition .join, .competition .leave {
   font-size: 1em;
   margin-left: 1.5em;
+}
+
+.competition .team .leave:hover {
+  color: #FC7988;
+  border-color: #FC7988;
 }
 
 .competition footer {

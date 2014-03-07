@@ -27,4 +27,13 @@ class OSGCCWeb
 
     redirect "/competitions/#{@team.competition.id}"
   end
+
+  post '/team/:team_id/remove_member/:user_id' do
+    @team = Team.includes(:competition).find(params[:team_id])
+    @user = User.find(params[:user_id])
+    @team.remove_member(@user)
+    @team.save!
+
+    redirect "/competitions/#{@team.competition.id}"
+  end
 end
