@@ -1,13 +1,38 @@
 require 'active_support/time'
 
 class Competition < ActiveRecord::Base
-  validates_presence_of :name,
-                        :start_time,
-                        :end_time,
-                        :time_zone
-  validate :end_time_is_greater_than_start_time
 
+  ##
+  # name (String)
+  #   an identifier for the competition
+  validate :name, :presence => true
+
+  ##
+  # start_time (Time)
+  #   the day and time when the competition starts, stored
+  #   in UTC
+  validate :start_time, :presence => true
+
+  ##
+  # end_time (Time)
+  #   the day and time when the competition end, stored
+  #   in UTC
+  validate :end_time, :presence => true
+
+  ##
+  # time_zone (String)
+  #   an ActiveSupport::TimeZone identifier to determine
+  #   which time zone the competition is being held in
+  validates :time_zone, :presence => true
+
+  ##
+  # teams ([Team])
+  #   a collection of teams that are registered for the
+  #   competition. a team can only be registered to one
+  #   competition.
   has_many :teams, :inverse_of => :competition
+
+  validate :end_time_is_greater_than_start_time
 
   def end_time_is_greater_than_start_time
     if end_time.to_i <= start_time.to_i
