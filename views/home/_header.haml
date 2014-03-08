@@ -5,11 +5,11 @@
         %li
           %a{:href => "https://github.com/#{current_user.username}"}
             #{current_user.username}
-        %li
+        %li.last
           %a{:href => url('/logout')}
             Log out
       - else
-        %li
+        %li.last
           %a{:href => url('/login')}
             Log In
 
@@ -46,7 +46,7 @@
                   %li
                     %a{:href => '/competition/#{comp.id}'}
                       #{comp.name}
-        %li
+        %li.last
           %a{:href => url('/contact')}
             Contact
 

@@ -21,10 +21,10 @@
 }
 
 .competition p.schedule {
-  text-align: right;
   font-size: 1.6em;
-  margin: 0.5em 0 0.5em 15em;
+  margin: 0.5em 0 0.5em;
   text-align: left;
+  float: right;
 }
 
 .competition span.date {

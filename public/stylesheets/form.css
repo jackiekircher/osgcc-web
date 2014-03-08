@@ -12,6 +12,10 @@ form, form input, form select, textarea {
   color: #2C9113;
 }
 
+form .form-group {
+  display: inline-block;
+}
+
 form label {
   display:block;
   font-size: 1.3em;
@@ -20,12 +24,14 @@ form label {
 form input.name {
   margin: 0.2em 0 1em;
   height: 1.5em;
+  width: 99%;
   font-size: 2.5em;
 }
 
 form textarea {
   margin: 0.4em 0 2em;
   padding: 0.3em;
+  width: 98%;
   font-size: 1.2em;
 }
 
