@@ -8,6 +8,10 @@
       %span.date<
         #{@competition.end.strftime('%m/%d/%y %I:%M%P %Z')}
 
+  %div#description
+    :markdown
+      #{escape_html(@competition.description)}
+
   - if @competition.teams.any?
 
     %div#teams

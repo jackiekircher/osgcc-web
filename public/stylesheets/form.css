@@ -8,7 +8,7 @@
   border: 2px solid #FC7988;
 }
 
-form, form input, form select {
+form, form input, form select, textarea {
   color: #2C9113;
 }
 
@@ -21,6 +21,12 @@ form input.name {
   margin: 0.2em 0 1em;
   height: 1.5em;
   font-size: 2.5em;
+}
+
+form textarea {
+  margin: 0.4em 0 2em;
+  padding: 0.3em;
+  font-size: 1.2em;
 }
 
 form input.time {

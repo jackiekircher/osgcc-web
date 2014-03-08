@@ -8,6 +8,11 @@ class Competition < ActiveRecord::Base
   validate :name, :presence => true
 
   ##
+  # description (Text)
+  #   information about the competition such as it's location
+  #   or any restrictions/themes. rendered in markdown.
+
+  ##
   # start_time (Time)
   #   the day and time when the competition starts, stored
   #   in UTC

@@ -18,6 +18,18 @@
                 :value => @competition.name,
                 :placeholder => 'New Competition Name',
                 :required    => 'required'}
+
+  %div.clearfix
+    %label{:for => 'description'}<
+      description:
+    %textarea{:id    => 'description',
+              :name  => 'description',
+              :rows  => 10,
+              :cols  => 59,
+              :placeholder => 'add any additional information here. contact info, location, themes, etc.'}<
+      :preserve
+        #{@competition.description}
+
   %div#times
     %div.clearfix
       %label{:for => 'start-date'}<

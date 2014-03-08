@@ -31,6 +31,10 @@
   display: block;
 }
 
+.competition #description {
+  margin-bottom: 2em;
+}
+
 .competition #teams {
   margin-left: 2em;
 }

@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'sinatra'
 gem 'haml'
+gem 'redcarpet'
 gem 'pg'
 gem 'sinatra-activerecord'
 gem 'rake'
