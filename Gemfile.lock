@@ -112,4 +112,3 @@ DEPENDENCIES
   rspec
   sinatra
   sinatra-activerecord
-  tzinfo

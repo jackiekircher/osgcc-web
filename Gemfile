@@ -1,14 +1,19 @@
 source 'https://rubygems.org'
 
 gem 'sinatra'
-gem 'haml'
-gem 'redcarpet'
-gem 'pg'
 gem 'sinatra-activerecord'
 gem 'rake'
+gem 'pg'
+
+# oauth
 gem 'omniauth'
 gem 'omniauth-github'
-gem 'tzinfo'
+
+# templates
+gem 'haml'
+gem 'redcarpet'
+
+# debugging
 gem 'debugger2'
 
 group :test do
