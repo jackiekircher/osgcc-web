@@ -11,6 +11,7 @@ gem 'omniauth-github'
 
 # templates
 gem 'haml'
+gem 'sass'
 gem 'redcarpet'
 
 # debugging

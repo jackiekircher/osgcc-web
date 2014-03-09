@@ -5,55 +5,69 @@
   margin-bottom: 4em;
   color: #FC7988;
   line-height: 0;
-  border: 2px solid #FC7988; }
+  border: 2px solid #FC7988;
+}
 
 form, form input, form select, textarea {
-  color: #2C9113; }
+  color: #2C9113;
+}
 
 form .form-group {
-  display: inline-block; }
+  display: inline-block;
+}
 
 form label {
-  display: block;
-  font-size: 1.3em; }
+  display:block;
+  font-size: 1.3em;
+}
 
 form input.name {
   margin: 0.2em 0 1em;
   height: 1.5em;
   width: 99%;
-  font-size: 2.5em; }
+  font-size: 2.5em;
+}
 
 form textarea {
   margin: 0.4em 0 2em;
   padding: 0.3em;
   width: 98%;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+}
 
 form input.time {
   display: inline-block;
   margin: 0 3em 2em 0;
   width: 9em;
-  font-size: 1.3em; }
+  font-size: 1.3em;
+}
 
 form input.last {
-  margin-right: 0; }
+  margin-right: 0;
+}
 
 form select#timezone {
   font-size: 1.3em;
   padding: 0.3em;
-  margin: 0 1em 4em 0; }
+  margin: 0 1em 4em 0;
+}
 
 form input#submit {
   margin-left: 4.5em;
   font-size: 1.5em;
   -webkit-appearance: button;
   border-width: 0.1em;
-  float: right; }
+  float: right;
+}
+
 
 /* competitions */
+
 form#competition #times label {
   width: 6em;
   display: inline-block;
-  font-size: 1.2em; }
+  font-size: 1.2em;
+}
 
 /* teams */
+
