@@ -1,2 +1,5 @@
 api_keys.yml
 env_keys.yml
+
+.sass-cache/**
+*.css
