@@ -3,71 +3,59 @@
   list-style: none;
   padding: 1em;
   margin-bottom: 4em;
-  color: #FC7988;
+  color: $error-color;
   line-height: 0;
-  border: 2px solid #FC7988;
+  border: 2px solid $error-color;
 }
 
-form, form input, form select, textarea {
-  color: #2C9113;
+form, input, select, textarea {
+  color: $primary-color;
 }
 
-form .form-group {
+.form-group {
   display: inline-block;
 }
 
-form label {
+label {
   display:block;
   font-size: 1.3em;
 }
 
-form input.name {
+input.name {
   margin: 0.2em 0 1em;
   height: 1.5em;
   width: 99%;
   font-size: 2.5em;
 }
 
-form textarea {
+textarea {
   margin: 0.4em 0 2em;
   padding: 0.3em;
   width: 98%;
   font-size: 1.2em;
 }
 
-form input.time {
+input.time {
   display: inline-block;
   margin: 0 3em 2em 0;
   width: 9em;
   font-size: 1.3em;
 }
 
-form input.last {
+input.last {
   margin-right: 0;
 }
 
-form select#timezone {
+select#timezone {
   font-size: 1.3em;
   padding: 0.3em;
   margin: 0 1em 4em 0;
 }
 
-form input#submit {
+input#submit {
   margin-left: 4.5em;
   font-size: 1.5em;
   -webkit-appearance: button;
   border-width: 0.1em;
   float: right;
 }
-
-
-/* competitions */
-
-form#competition #times label {
-  width: 6em;
-  display: inline-block;
-  font-size: 1.2em;
-}
-
-/* teams */
-
