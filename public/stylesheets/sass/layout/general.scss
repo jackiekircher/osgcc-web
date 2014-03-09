@@ -44,5 +44,6 @@ ul li.last {
   &:hover {
     color: $primary-color;
     background-color: $bg-color;
+    text-decoration: none;
   }
 }

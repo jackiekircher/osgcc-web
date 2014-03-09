@@ -1,0 +1,29 @@
+.team {
+  padding-left: 1em;
+  padding-bottom: 1.5em;
+  margin-left: 1.5em;
+  @include line-under($primary-color);
+
+  .member {
+    padding: 0.5em 0;
+    margin-left: 1.5em;
+  }
+
+  .join {
+    font-size: 1em;
+    margin-left: 1.5em;
+  }
+
+  .leave {
+    font-size: 1em;
+    margin-left: 1.5em;
+    &:hover {
+      color: $error-color;
+      border-color: $error-color;
+    }
+  }
+}
+
+.team-members li {
+  display: inline-block;
+}

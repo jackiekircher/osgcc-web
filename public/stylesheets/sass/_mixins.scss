@@ -1,3 +1,7 @@
+@mixin line-under($color) {
+  border-bottom: 2px solid $color;
+}
+
 @mixin invert-link($color1, $color2) {
   a {
     color: $color1;
