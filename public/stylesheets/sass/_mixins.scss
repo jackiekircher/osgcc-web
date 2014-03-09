@@ -1,0 +1,14 @@
+@mixin invert-link($color1, $color2) {
+  a {
+    color: $color1;
+  }
+
+  &:hover {
+    color: $color2;
+    background-color: $color1;
+
+    a {
+      color: $color2;
+    }
+  }
+}

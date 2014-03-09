@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-width: 530px;
+}
+
+h1, h2, h3, h4 {
+  color: $primary-color;
+}
+
+a {
+  color: $secondary-color;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+ul li.last {
+  margin-right: 0;
+}
+
+.clearfix {
+  display: block;
+  clear: both;
+}
+
+.container-fluid {
+  width: 90%;
+  max-width: 45em;
+  margin: 4em auto;
+}
+
+.button {
+  color: $bg-color;
+  background-color: $primary-color;
+  text-decoration: none;
+  margin: 0 1em;
+  padding: 0.3em 1.2em;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 0.2em solid $primary-color;
+
+  &:hover {
+    color: $primary-color;
+    background-color: $bg-color;
+  }
+}

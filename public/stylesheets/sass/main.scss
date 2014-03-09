@@ -1,5 +1,12 @@
+// general dependencies
 @import "reset";
+@import "_colors";
+@import "_mixins";
 
-@import "style";
+// layout styles
+@import "layout/header";
+@import "layout/general";
+
+// unconverted files
 @import "form";
 @import "competition";
