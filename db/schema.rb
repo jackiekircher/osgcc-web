@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307232057) do
+ActiveRecord::Schema.define(version: 20140310182903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,13 @@ ActiveRecord::Schema.define(version: 20140307232057) do
     t.datetime "start_time"
     t.datetime "end_time"
     t.string   "time_zone"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.text     "description"
+    t.integer  "organizer_id"
   end
+
+  add_index "competitions", ["organizer_id"], name: "index_competitions_on_organizer_id", using: :btree
 
   create_table "teams", force: true do |t|
     t.string   "name"

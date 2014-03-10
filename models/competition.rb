@@ -13,6 +13,16 @@ class Competition < ActiveRecord::Base
   #   or any restrictions/themes. rendered in markdown.
 
   ##
+  # organizer (User)
+  #   the person who is responsible for overseeing the
+  #   competition. they are allowed to edit/delete the
+  #   competition as well as broadcast updates to its
+  #   participants.
+  #
+  #  foregin key: organizer_id
+  belongs_to :organizer, :class_name => "User"
+
+  ##
   # start_time (Time)
   #   the day and time when the competition starts, stored
   #   in UTC
