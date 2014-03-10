@@ -31,14 +31,14 @@
                 %li
                   %form{:method => "post",
                         :action => url("/team/#{team.id}/add_member/#{current_user.id}")}
-                    %input.button.join{:type  => 'submit',
-                                       :value => 'Join Team'}
+                    %input.button{:type  => 'submit',
+                                  :value => 'Join Team'}
               - if team.member?(current_user)
                 %li
                   %form{:method => "post",
                         :action => url("/team/#{team.id}/remove_member/#{current_user.id}")}
-                    %input.button.leave{:type  => 'submit',
-                                        :value => 'Leave Team'}
+                    %input.button.irreversible{:type  => 'submit',
+                                               :value => 'Leave Team'}
 
   %footer
     - if logged_in?

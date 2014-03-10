@@ -47,3 +47,10 @@ ul li.last {
     text-decoration: none;
   }
 }
+
+.irreversible {
+  &:hover {
+    color: $error-color;
+    border-color: $error-color;
+  }
+}
