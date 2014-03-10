@@ -17,8 +17,8 @@ class OSGCCWeb
     begin
       c = Competition.new(:name        => name,
                           :description => description,
-                          :start_time  => start_time - timezone.utc_offset.seconds,
-                          :end_time    => end_time - timezone.utc_offset.seconds,
+                          :start_time  => start_time - timezone.now.utc_offset.seconds,
+                          :end_time    => end_time - timezone.now.utc_offset.seconds,
                           :time_zone   => timezone.name)
       c.save!
 
@@ -74,8 +74,8 @@ class OSGCCWeb
 
     @competition.update_attributes(:name        => name,
                                    :description => description,
-                                   :start_time  => start_time - timezone.utc_offset.seconds,
-                                   :end_time    => end_time - timezone.utc_offset.seconds,
+                                   :start_time  => start_time - timezone.now.utc_offset.seconds,
+                                   :end_time    => end_time - timezone.now.utc_offset.seconds,
                                    :time_zone   => timezone.name)
 
     redirect "/competitions/#{@competition.id}"
