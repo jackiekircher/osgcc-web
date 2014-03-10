@@ -11,7 +11,11 @@ module AuthorizationHelpers
   end
 
   def authorized?
-    return (logged_in? && current_user.admin?)
+    logged_in? && current_user.admin?
+  end
+
+  def organizer?(competition)
+    logged_in? && (current_user == competition.organizer)
   end
 end
 
