@@ -47,4 +47,8 @@
 .competition footer {
   margin-top: 2em;
   text-align: right;
+
+  li {
+    display: inline-block;
+  }
 }

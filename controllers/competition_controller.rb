@@ -80,4 +80,11 @@ class OSGCCWeb
 
     redirect "/competitions/#{@competition.id}"
   end
+
+  post '/competitions/:id/destroy', :authorize => :admin do
+    @competition = Competition.find(params[:id])
+    @competition.destroy
+
+    redirect "/competitions"
+  end
 end

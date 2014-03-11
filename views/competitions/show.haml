@@ -41,10 +41,18 @@
                                                :value => 'Leave Team'}
 
   %footer
-    - if logged_in?
-      %a.button{:href => url("/competitions/#{@competition.id}/teams/new")}
-        Create Team
-      - if authorized?
-        %a.button{:href => url("/competitions/#{@competition.id}/edit")}
-          Edit
+    %ul
+      - if logged_in?
+        %li
+          %a.button{:href => url("/competitions/#{@competition.id}/teams/new")}
+            Create Team
+        - if authorized?
+          %li
+            %a.button{:href => url("/competitions/#{@competition.id}/edit")}
+              Edit Event
+          %li
+            %form{:method => "post",
+                  :action => url("/competitions/#{@competition.id}/destroy")}
+              %input.button.irreversible{:type  => 'submit',
+                                         :value => 'Cancel Event'}
 
