@@ -1,23 +1,31 @@
 .competition h1 {
-  font-size: 2em;
-  margin-bottom: 0;
+  margin: 0.5em 0 0;
   padding-bottom: 0.4em;
   float: left;
-  position: relative;
-  bottom: 0.5em
+  font-size: 2em;
+  font-weight: bold;
 }
 
 .competition h2 {
+  margin-bottom: 1em;
   font-size: 1.4em;
+  font-weight: bold;
 }
 
 .competition h3 {
+  margin-bottom: 1em;
   color: #000;
   font-size: 1.4em;
+  font-weight: bold;
 }
+
 
 .competition header {
   @include line-under($primary-color);
+}
+
+.competition p {
+  margin: 1em 0;
 }
 
 .competition .schedule {
@@ -41,7 +49,6 @@
 
 .competition ul {
   padding: 0;
-  list-style: none;
 }
 
 .competition footer {
