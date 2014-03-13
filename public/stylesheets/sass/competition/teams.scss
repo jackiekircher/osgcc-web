@@ -1,7 +1,7 @@
 .team {
   padding-left: 1em;
   padding-bottom: 1.5em;
-  margin-left: 1.5em;
+  margin: 1.5em 0 0 1.5em;
   @include line-under($primary-color);
 
   .member {
