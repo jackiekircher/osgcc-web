@@ -1,13 +1,19 @@
+var handlers = {
+
+  // add a confirmation dialogue that must be answered
+  // affirmatively to allow the action to take place
+  warn: function handlersWarn(event) {
+          if(!confirm('Are you sure? This action cannot be undone')) {
+            event.preventDefault();
+          }
+        }
+};
+
 $(document).ready(function() {
 
-  // ensure that there is a confirmation dialgoue when activating
-  // irreversible actions
+  // add warn event handler to all irreversible actions
   (function warnIrreversible() {
-    $('.irreversible').click(function(event) {
-      if(!confirm('Are you sure? This action cannot be undone')) {
-        event.preventDefault();
-      }
-    });
+    $('.irreversible').click(handlers.warn);
   })();
 
 });
