@@ -8,6 +8,12 @@ require 'rack/test'
 require_relative '../osgcc_web'
 require_relative './acceptance_helpers.rb'
 
+# for controller tests
+def app
+  OSGCCWeb
+end
+
+# for acceptance tests
 Capybara.app = OSGCCWeb
 
 RSpec.configure do |config|
