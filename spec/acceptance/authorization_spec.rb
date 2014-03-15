@@ -2,10 +2,6 @@ require_relative '../spec_helper.rb'
 
 describe 'OSGCC-Web authentications', :type => :feature do
 
-  def app
-    OSGCCWeb
-  end
-
   describe "logging in" do
 
     it "creates a user from the auth uid if none exists" do
