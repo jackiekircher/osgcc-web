@@ -56,7 +56,7 @@ class Team < ActiveRecord::Base
   end
 
   def add_member(user)
-    return false if full?
+    return false unless joinable?(user)
 
     members << user
     return true

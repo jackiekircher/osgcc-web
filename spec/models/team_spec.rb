@@ -78,7 +78,7 @@ describe Team do
     let(:user) { User.new }
 
     it "returns false if the team is full" do
-      team.stub(:full? => true)
+      team.stub(:joinable? => false)
       team.add_member(user).should be_false
     end
 
