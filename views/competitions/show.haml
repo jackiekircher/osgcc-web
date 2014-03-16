@@ -27,18 +27,19 @@
               - team.members.each do |member|
                 %li.member<
                   = member.username
-              - if !team.member?(current_user) && !team.full?
-                %li
-                  %form{:method => "post",
-                        :action => url("/team/#{team.id}/add_member/#{current_user.id}")}
-                    %input.button{:type  => 'submit',
-                                  :value => 'Join Team'}
-              - if team.member?(current_user)
-                %li
-                  %form{:method => "post",
-                        :action => url("/team/#{team.id}/remove_member/#{current_user.id}")}
-                    %input.button.irreversible{:type  => 'submit',
-                                               :value => 'Leave Team'}
+              - if current_user
+                - if !team.member?(current_user) && !team.full?
+                  %li
+                    %form{:method => "post",
+                          :action => url("/team/#{team.id}/add_member/#{current_user.id}")}
+                      %input.button{:type  => 'submit',
+                                    :value => 'Join Team'}
+                - if team.member?(current_user)
+                  %li
+                    %form{:method => "post",
+                          :action => url("/team/#{team.id}/remove_member/#{current_user.id}")}
+                      %input.button.irreversible{:type  => 'submit',
+                                                 :value => 'Leave Team'}
 
   %footer
     %ul
