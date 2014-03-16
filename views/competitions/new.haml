@@ -73,7 +73,7 @@
         time zone:
       %select#timezone{:name => "timezone"}
         - @zones.each do |timezone, label|
-          - if @competition.timezone.name == timezone
+          - if matches_timezone?(@competition, timezone)
             %option{:value => timezone, :selected => true}
               = label
           - else
