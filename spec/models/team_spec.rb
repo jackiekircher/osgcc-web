@@ -48,6 +48,30 @@ describe Team do
     end
   end
 
+  describe "#joinable?" do
+
+    let(:team) { Team.new }
+    let(:user) { User.new }
+
+    it "returns false if the user is already a member" do
+      team.members << user
+      team.joinable?(user).should be_false
+    end
+
+    it "returns false if the team is full" do
+      (1..Team::TEAM_LIMIT).each do
+        team.members << User.new
+      end
+
+      team.joinable?(user).should be_false
+    end
+
+    it "returns true iff the user is not a member and the
+        team has room" do
+      team.joinable?(user).should be_true
+    end
+  end
+
   describe "#add_member" do
 
     let(:team) { Team.new }

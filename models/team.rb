@@ -51,6 +51,10 @@ class Team < ActiveRecord::Base
     members.length >= TEAM_LIMIT
   end
 
+  def joinable?(user)
+    !self.member?(user) && !self.full?
+  end
+
   def add_member(user)
     return false if full?
 

@@ -28,7 +28,7 @@
                 %li.member<
                   = member.username
               - if current_user
-                - if !team.member?(current_user) && !team.full?
+                - if team.joinable?(current_user)
                   %li
                     %form{:method => "post",
                           :action => url("/team/#{team.id}/add_member/#{current_user.id}")}
