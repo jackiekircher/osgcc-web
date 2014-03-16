@@ -16,7 +16,7 @@
                 :type  => 'text',
                 :value => @competition.name,
                 :placeholder => 'New Competition Name',
-                :required    => 'required'}
+                :required    => true}
 
   %div.clearfix
     %label{:for => 'description'}<
@@ -38,7 +38,7 @@
                     :type     => 'date',
                     :name     => 'start_date',
                     :value    => date_of(@competition.start),
-                    :required => 'required'}
+                    :required => true}
 
       %div.form-group
         %label{:for => 'start-time'}<
@@ -47,7 +47,7 @@
                          :type     => 'time',
                          :name     => 'start_time',
                          :value    => time_of(@competition.start),
-                         :required => 'required'}
+                         :required => true}
 
     %div.clearfix
       %div.form-group
@@ -57,7 +57,7 @@
                     :type     => 'date',
                     :name     => 'end_date',
                     :value    => date_of(@competition.end),
-                    :required => 'required'}
+                    :required => true}
 
       %div.form-group
         %label{:for => 'end-time'}<
@@ -66,7 +66,7 @@
                          :type     => 'time',
                          :name     => 'end_time',
                          :value    => time_of(@competition.end),
-                         :required => 'required'}
+                         :required => true}
 
     %div.clearfix
       %label{:for => 'timezone'}<
@@ -74,7 +74,7 @@
       %select#timezone{:name => "timezone"}
         - @zones.each do |timezone, label|
           - if @competition.timezone.name == timezone
-            %option{:value => timezone, :selected => "selected"}
+            %option{:value => timezone, :selected => true}
               = label
           - else
             %option{:value => timezone}
