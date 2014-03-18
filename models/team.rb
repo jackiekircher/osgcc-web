@@ -17,6 +17,14 @@ class Team < ActiveRecord::Base
   validates  :competition_id, :presence => true
 
   ##
+  # repository_url (String)
+  #   each team will have one repository linked to it that
+  #   contains their submission. team members may coordinate
+  #   through local copies or push to multiple repos during
+  #   the competition but only submissions to the repository
+  #   designated by this string will count.
+
+  ##
   # members ([Users])
   #   a collection of users that have joined the team.
   #   users may join many teams, even teams associated with
