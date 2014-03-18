@@ -13,11 +13,19 @@
       team name:
     %input.name{:id    => 'team-name',
                 :name  => 'team_name',
-                :size  => 29,
                 :type  => 'text',
                 :value => @team.name,
                 :placeholder => 'Team Name',
                 :required    => true}
 
-  %input#submit{:type  => 'submit',
-                :value => 'Create Team'}
+  %div.clearfix
+    %label{:for => 'repo-url'}
+      repository url:
+    %input.long{:id    => 'repo-url',
+                :name  => 'repo_url',
+                :type  => 'text',
+                :value => @team.repository_url,
+                :placeholder => 'Repository URL'}
+
+  %input#submit.button{:type  => 'submit',
+                       :value => 'Create Team'}

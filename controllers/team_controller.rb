@@ -8,8 +8,9 @@ class OSGCCWeb
 
   post '/competitions/:id/teams', :authorize => :user do
     @competition = Competition.find(params[:id])
-    @team = @competition.teams.build(:name    => params[:team_name],
-                                     :members => [current_user])
+    @team = @competition.teams.build(:name           => params[:team_name],
+                                     :repository_url => params[:repo_url],
+                                     :members        => [current_user])
     begin
       @team.save!
       redirect "/competitions/#{@competition.id}"
