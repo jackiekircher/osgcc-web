@@ -55,6 +55,58 @@ describe "TeamController" do
     end
   end
 
+  describe "edit" do
+
+    it "fails to load if the user is not a team member" do
+      get "/competitions/#{competition.id}/teams/#{team.id}", {},
+          {'rack.session' => { :user_uid => user.uid }}
+
+      last_response.should_not be_ok
+    end
+
+    it "loads successfully if the user is a team member" do
+      team.add_member(user)
+      team.save
+      get "/competitions/#{competition.id}/teams/#{team.id}", {},
+          {'rack.session' => { :user_uid => user.uid }}
+
+      last_response.should be_ok
+    end
+  end
+
+  describe "update" do
+
+    it "fails to load if the user is not a team member" do
+      post "/competitions/#{competition.id}/teams/#{team.id}",
+          {:team_name => team.name},
+          {'rack.session' => { :user_uid => user.uid }}
+
+      last_response.should_not be_ok
+    end
+
+    it "redirects to the competition page" do
+      team.add_member(user)
+      team.save
+      post "/competitions/#{competition.id}/teams/#{team.id}",
+          {:team_name => team.name},
+          {'rack.session' => { :user_uid => user.uid }}
+
+      last_response.should be_redirect
+      last_response.location.should match("/competitions/#{competition.id}$")
+    end
+
+    it "updates the team" do
+      team.add_member(user)
+      team.save
+      new_name = "new team #{rand(100)}"
+      post "/competitions/#{competition.id}/teams/#{team.id}",
+          {:team_name => new_name},
+          {'rack.session' => { :user_uid => user.uid }}
+
+      team.reload.name.should eq new_name
+    end
+  end
+
   describe "add member" do
 
     let(:new_user) do

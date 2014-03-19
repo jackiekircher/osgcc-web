@@ -1,0 +1,31 @@
+- if @errors
+  %div#validation-errors
+    %ul
+    - @errors.each do |field, message|
+      %li
+        = message
+
+%form{:method => 'post',
+      :action => url("/competitions/#{@competition.id}/teams/#{@team.id}"),
+      :id => "team"}
+  %div.clearfix
+    %label{:for => 'team-name'}
+      team name:
+    %input.name{:id    => 'team-name',
+                :name  => 'team_name',
+                :type  => 'text',
+                :value => @team.name,
+                :placeholder => 'Team Name',
+                :required    => true}
+
+  %div.clearfix
+    %label{:for => 'repo-url'}
+      repository url:
+    %input.long{:id    => 'repo-url',
+                :name  => 'repo_url',
+                :type  => 'text',
+                :value => @team.repository_url,
+                :placeholder => 'Repository URL'}
+
+  %input#submit.button{:type  => 'submit',
+                       :value => 'Update Team'}

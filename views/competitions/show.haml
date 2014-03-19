@@ -20,6 +20,10 @@
       %ul
         - @competition.teams.each do |team|
           %li.team<
+            - if team.member?(current_user)
+              %div.right><
+                %a{:href => url("/competitions/#{@competition.id}/teams/#{team.id}")}<>
+                  [ edit ]
             %h3>
               = team.name
             Members:
