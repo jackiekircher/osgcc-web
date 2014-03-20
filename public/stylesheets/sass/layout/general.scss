@@ -9,10 +9,10 @@ h1, h2, h3, h4 {
 }
 
 a {
-  color: $secondary-color;
+  color: $primary-color;
 }
 a:hover {
-  text-decoration: underline;
+  color: $secondary-color;
 }
 
 strong {
