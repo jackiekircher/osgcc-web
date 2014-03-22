@@ -27,6 +27,34 @@ ul li.last {
   margin-right: 0;
 }
 
+article {
+  margin-bottom: 4.5em;
+  @include line-under($primary-color);
+
+  h1 {
+    font-size: 2em;
+  }
+  time {
+    font-size: 1.2em;
+    font-weight: bold;
+    a {
+      text-decoration: none;
+      color: $light-grey;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  header {
+    margin-bottom: 1em;
+  }
+  footer {
+    text-align: right;
+    margin: 1em 0 2.5em 0;
+    padding: 0 2em;
+  }
+}
+
 .clearfix {
   display: block;
   clear: both;
