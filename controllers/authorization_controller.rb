@@ -14,7 +14,7 @@ class OSGCCWeb
 
     session[:user_uid]   = user.uid
     session[:user_token] = auth['credentials']['token']
-    redirect '/'
+    redirect back
   end
 
   get '/logout' do
