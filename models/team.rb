@@ -73,4 +73,8 @@ class Team < ActiveRecord::Base
   def remove_member(user)
     members.delete(user)
   end
+
+  def show_repo?
+    !repository_url.blank?
+  end
 end

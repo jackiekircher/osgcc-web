@@ -26,6 +26,10 @@
                   [ edit ]
             %h3>
               = team.name
+            - if team.show_repo?
+              %p>
+                %strong repository:
+                #{team.repository_url}
             Members:
             %ul.team-members>
               - team.members.each do |member|

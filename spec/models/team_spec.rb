@@ -107,4 +107,23 @@ describe Team do
       team.members.should_not include user
     end
   end
+
+  describe "#show_repo?" do
+
+    it "returns false if the repository_url is nil" do
+      Team.new(:repository_url => nil).show_repo?.should be_false
+    end
+
+    it "returns false if the repository_url is blank" do
+      Team.new(:repository_url => "").show_repo?.should be_false
+    end
+
+    it "returns false if the repository_url is only whitespace" do
+      Team.new(:repository_url => " ").show_repo?.should be_false
+    end
+
+    it "returns true if the repository_url is not blank" do
+      Team.new(:repository_url => "a").show_repo?.should be_true
+    end
+  end
 end
