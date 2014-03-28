@@ -40,8 +40,8 @@
                   %li
                     %form{:method => "post",
                           :action => url("/team/#{team.id}/add_member/#{current_user.id}")}
-                      %input.button{:type  => 'submit',
-                                    :value => 'Join Team'}
+                      %input.button.ajax-submit{:type  => 'submit',
+                                                :value => 'Join Team'}
                 - if team.member?(current_user)
                   %li
                     %form{:method => "post",

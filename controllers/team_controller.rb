@@ -51,7 +51,11 @@ class OSGCCWeb
     @team.add_member(@user)
     @team.save!
 
-    redirect "/competitions/#{@team.competition.id}"
+    if request.xhr?
+      haml :'teams/members'
+    else
+      redirect "/competitions/#{@team.competition.id}"
+    end
   end
 
   post '/team/:team_id/remove_member/:user_id' do

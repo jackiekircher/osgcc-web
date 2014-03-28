@@ -12,8 +12,23 @@ var handlers = {
 $(document).ready(function() {
 
   // add warn event handler to all irreversible actions
-  (function warnIrreversible() {
+  function warnIrreversible() {
     $('.irreversible').click(handlers.warn);
-  })();
+  }
+  warnIrreversible();
 
+  $('.ajax-submit').click(function(event) {
+    event.preventDefault();
+    var form = $(this).parent();
+
+    $.ajax({
+      url: form.attr('action'),
+      type: 'post',
+      dataType: 'html',
+      success: function(data) {
+        form.closest("ul").html(data);
+        warnIrreversible();
+      }
+    });
+  });
 });
